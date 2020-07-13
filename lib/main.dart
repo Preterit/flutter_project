@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/dialog.dart';
+import 'package:flutterproject/net/net_util.dart';
 
 import 'common/toast.dart';
 import 'common/dialog.dart' as dialog;
@@ -41,7 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
 //      _showDialog();
 //      _showLoadDialog();
 //      Toast.show(context,msg: "----------$_counter---------");
-
+      Map<String, String> params = {};
+      NetUtil.testData(params, success: (responce) {
+        print("report - $responce");
+      }, failure: (code, errorMsg) {
+        print("report - code: $code errorMsg: $errorMsg");
+      });
     });
   }
 

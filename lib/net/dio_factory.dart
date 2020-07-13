@@ -36,15 +36,16 @@ class DioFactory {
       //网络状态拦截
       ..interceptors
           .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
-        print('request:url==>>>${options.path},pamars==>>>>${options.data}');
+            // TODO 请求之前
+//        print('request:url==>>>${options.path},pamars==>>>>${options.data}');
         return options; //continue
       }, onResponse: (Response response) {
         return response; // continue
       }, onError: (DioError e) {
         return e; //continue
-      }))
+      }));
       //拦截器
-      ..interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
+//      ..interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
   }
 }
 

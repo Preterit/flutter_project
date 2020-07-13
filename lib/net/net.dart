@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutterproject/net/dio_factory.dart';
 import 'package:flutterproject/net/model/base_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 enum Method {
   get,
@@ -68,6 +69,11 @@ void _doRequest(String url, Map<String, dynamic> params, Method method,
       }
     }
   } catch (exception) {
-    
+    // 不指定错误类型，匹配所有
+    print('错误：${exception.toString()}');
+    Fluttertoast.showToast(msg: "请求失败，请稍后再试");
+    if (failureCallBack != null) {
+      failureCallBack(exception.toString());
+    }
   }
 }
