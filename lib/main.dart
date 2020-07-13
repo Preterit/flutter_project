@@ -42,9 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //      _showDialog();
 //      _showLoadDialog();
 //      Toast.show(context,msg: "----------$_counter---------");
-      Map<String, String> params = {};
-      NetUtil.testData(params, success: (responce) {
-        print("report - $responce");
+      var params = {"phone":"18614005205","password":"14e1b600b1fd579f47433b88e8d85291"};
+      NetUtil.login(params, success: (responce) {
       }, failure: (code, errorMsg) {
         print("report - code: $code errorMsg: $errorMsg");
       });

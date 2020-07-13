@@ -54,7 +54,7 @@ void _doRequest(String url, Map<String, dynamic> params, Method method,
     Map<String, dynamic> result = json.decode(response.toString());
 
     /// 打印信息
-    print("api: $url \nparams: $params \nresult: $result");
+    print("api: $url \nparams: $params \nresponse: $response");
 
     /// 转化为model
     var model = BaseModel.fromJson(result);
