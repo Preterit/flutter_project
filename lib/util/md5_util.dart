@@ -1,24 +1,13 @@
-import 'dart:collection';
 import 'dart:convert';
+import 'package:convert/convert.dart';
+import 'package:crypto/crypto.dart';
 
 class Md5Util{
 
-  static String md5Method(String str){
+  /// MD5 加密
+  static String str2md5(String str){
     var content = new Utf8Encoder().convert(str);
+    var digest = md5.convert(content);
+    return hex.encode(digest.bytes);
   }
-
-}
-
-
-class DataHelper{
-
-  static SplayTreeMap getBaseMap() {
-    var map = new SplayTreeMap<String, dynamic>();
-    map["platform"] = "1";
-    map["system"] = "android";
-    map["channel"] = "official";
-    map["time"] = new DateTime.now().millisecondsSinceEpoch.toString();
-    return map;
-  }
-
 }

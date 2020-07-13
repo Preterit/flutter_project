@@ -73,7 +73,7 @@ void _doRequest(String url, Map<String, dynamic> params, Method method,
     print('错误：${exception.toString()}');
     Fluttertoast.showToast(msg: "请求失败，请稍后再试");
     if (failureCallBack != null) {
-      failureCallBack(exception.toString());
+      failureCallBack(-1,exception.toString());
     }
   }
 }

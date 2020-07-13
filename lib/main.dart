@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/dialog.dart';
 import 'package:flutterproject/net/net_util.dart';
+import 'package:flutterproject/util/md5_util.dart';
 
 import 'common/toast.dart';
 import 'common/dialog.dart' as dialog;
@@ -42,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //      _showDialog();
 //      _showLoadDialog();
 //      Toast.show(context,msg: "----------$_counter---------");
-      var params = {"phone":"18614005205","password":"14e1b600b1fd579f47433b88e8d85291"};
+      var params = {"phone":"18614005205","password": Md5Util.str2md5(Md5Util.str2md5("123456"))};
       NetUtil.login(params, success: (responce) {
       }, failure: (code, errorMsg) {
         print("report - code: $code errorMsg: $errorMsg");
