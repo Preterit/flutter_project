@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterproject/config/application.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -33,7 +34,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// 启动主页面
   void _indexPage() {
-    print("timeover --- ");
-    Navigator.of(context).pushReplacementNamed('/IndexPage');
+    Application.navigateTo(context, "/",replace: true);
   }
 }

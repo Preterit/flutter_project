@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/route/page/splash_screen.dart';
+
+import 'Component/app/app_component.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: SplashScreen(),
-    );
-  }
+  runApp(AppComponent());
 }
