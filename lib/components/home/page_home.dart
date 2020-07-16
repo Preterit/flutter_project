@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/config/application.dart';
 import 'package:flutterproject/config/routes.dart';
 
+import 'home_bottom_item.dart';
+
 /// 主页面
 class HomePage extends StatefulWidget {
   @override
@@ -10,6 +12,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int _currentIndex = 0;
+
+  void _onTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      bottomNavigationBar:HomeBottomNavBar(_currentIndex,_onTap)
     );
   }
 }

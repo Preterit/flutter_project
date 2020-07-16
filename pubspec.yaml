@@ -31,10 +31,10 @@ dependencies:
   cupertino_icons: ^0.1.3
   fluro: ^1.6.3
   fluttertoast: ^4.0.1
-  rxdart: ^0.21.0
   dio: ^3.0.9
   shared_preferences: ^0.5.7+3
   flutter_swiper: ^1.1.6
+  provider: ^4.3.1
 
 dev_dependencies:
   flutter_test:
@@ -56,18 +56,29 @@ flutter:
   #      - images/bg_theme_0.png
   #      - images/bg_theme_1.png
   assets:
-    - images/bg_theme_0.png
-    - images/bg_theme_1.png
-    - images/bg_theme_2.png
-    - images/bg_theme_3.png
-    - images/bg_theme_4.png
-    - images/bg_theme_5.png
-    - images/bg_theme_6.png
-    - images/bg_theme_7.png
-    - images/bg_theme_8.png
-    - images/bg_theme_9.png
-    - images/bg_theme_10.png
-    - images/3.0x/cat.jpeg
+    - assets/images/bg_theme_0.png
+    - assets/images/bg_theme_1.png
+    - assets/images/bg_theme_2.png
+    - assets/images/bg_theme_3.png
+    - assets/images/bg_theme_4.png
+    - assets/images/bg_theme_5.png
+    - assets/images/bg_theme_6.png
+    - assets/images/bg_theme_7.png
+    - assets/images/bg_theme_8.png
+    - assets/images/bg_theme_9.png
+    - assets/images/bg_theme_10.png
+
+    - assets/images/ic_skin_home_bill_pressed.png
+    - assets/images/ic_skin_home_bill.png
+    - assets/images/ic_skin_home_chart_pressed.png
+    - assets/images/ic_skin_home_chart.png
+    - assets/images/ic_skin_home_finance_pressed.png
+    - assets/images/ic_skin_home_finance.png
+    - assets/images/ic_skin_home_me_pressed.png
+    - assets/images/ic_skin_home_me.png
+    - assets/images/ic_skin_home_property_pressed.png
+    - assets/images/ic_skin_home_property.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

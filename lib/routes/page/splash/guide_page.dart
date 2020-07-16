@@ -12,15 +12,15 @@ class GuidePage extends StatefulWidget {
 
 class _GuidePageState extends State<GuidePage> {
   List<String> localImages = [
-    "images/bg_theme_0.png",
-    "images/bg_theme_1.png",
-    "images/bg_theme_2.png",
-    "images/bg_theme_3.png",
-    "images/bg_theme_4.png",
-    "images/bg_theme_5.png",
-    "images/bg_theme_6.png",
-    "images/bg_theme_7.png",
-    "images/bg_theme_8.png",
+    "assets/images/bg_theme_0.png",
+    "assets/images/bg_theme_1.png",
+    "assets/images/bg_theme_2.png",
+    "assets/images/bg_theme_3.png",
+    "assets/images/bg_theme_4.png",
+    "assets/images/bg_theme_5.png",
+    "assets/images/bg_theme_6.png",
+    "assets/images/bg_theme_7.png",
+    "assets/images/bg_theme_8.png",
   ];
 
   @override
