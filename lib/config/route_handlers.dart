@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/routes/page/splash/guide_page.dart';
 import 'package:flutterproject/routes/page/test/demo_simple_component.dart';
 import 'package:flutterproject/components/empty/empty_page.dart';
-import 'package:flutterproject/components/home/page_home.dart';
+import 'package:flutterproject/components/home/page_main.dart';
 import 'package:flutterproject/util/color_helpers.dart';
 
 var rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return HomePage();
+  return MainPage();
 });
 
 /// 空白页面

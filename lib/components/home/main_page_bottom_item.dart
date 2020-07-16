@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterproject/routes/bill_route/page_bill.dart';
+import 'package:flutterproject/routes/chart_route/page_chart.dart';
+import 'package:flutterproject/routes/finance_route/page_finance.dart';
+import 'package:flutterproject/routes/home_route/page_home.dart';
+import 'package:flutterproject/routes/mine_route/mine_page.dart';
 
 /// 底部导航 item
 Widget HomeBottomNavBar(_currentIndex, _onTap) {
@@ -15,6 +20,7 @@ Widget HomeBottomNavBar(_currentIndex, _onTap) {
   );
 }
 
+/// 创建 BottomNavigationBarItem
 List<BottomNavigationBarItem> createBarItem(_currentIndex) {
   List<BottomNavigationBarItem> list = new List();
 
@@ -63,3 +69,11 @@ Map<String, List<String>> imageUrlMap = {
     "assets/images/ic_skin_home_me.png"
   ],
 };
+
+List<Widget> mainPageList = [
+  HomePage(),
+  BillPage(),
+  ChartPage(),
+  FinancePage(),
+  MinePage(),
+];
