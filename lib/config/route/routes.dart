@@ -7,7 +7,7 @@ class Routes {
   static String demoSimpleFixedTrans = "/demo/fixedtrans";
   static String demoFunc = "/demo/func";
   static String deepLink = "/message";
-  static String textpage = "/textpage";
+  static String testpage = "/textpage";
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = emptyHandler;

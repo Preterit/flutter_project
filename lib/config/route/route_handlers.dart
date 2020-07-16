@@ -3,7 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/routes/page/test/demo_simple_component.dart';
 import 'package:flutterproject/routes/route/empty_page.dart';
-import 'package:flutterproject/routes/route/page_home.dart';
+import 'package:flutterproject/routes/route/main/page_home.dart';
 import 'package:flutterproject/util/color_helpers.dart';
 
 var rootHandler = Handler(
@@ -26,5 +26,5 @@ var demoRouteHandler = Handler(
   if (colorHex != null && colorHex.length > 0) {
     color = Color(ColorHelpers.fromHexString(colorHex));
   }
-  return DemoSimpleComponent(message: message, color: color, result: result);
+  return DemoSimpleComponent(message: message, color: Colors.black54, result: result);
 });

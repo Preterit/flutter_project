@@ -23,7 +23,12 @@ class _HomePageState extends State<HomePage> {
             RaisedButton(
               child: Text("跳转带参数"),
               onPressed: () {
-                Application.navigateTo(context, Routes.textpage);
+                var params = {"message": "拼接参数形式", "color_hex": "#E0E0E0"};
+                Application.navigateTo(context, Routes.demoSimple,
+                        params: params)
+                    .then((value) => {if (value != null) {
+                      print("-------"+value)
+                }});
               },
             ),
           ],

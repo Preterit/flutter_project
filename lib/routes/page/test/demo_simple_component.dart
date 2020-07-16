@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/util/color_helpers.dart';
 
 /// 测试路由的 页面
 class DemoSimpleComponent extends StatefulWidget {
   @override
-  _DemoSimpleComponentState createState() => _DemoSimpleComponentState();
+  _DemoSimpleComponentState createState() => _DemoSimpleComponentState(
+      message: this.message, color: this.color, result: this.result);
 
   DemoSimpleComponent(
       {String message = "TestIng",
@@ -21,7 +21,6 @@ class DemoSimpleComponent extends StatefulWidget {
 }
 
 class _DemoSimpleComponentState extends State<DemoSimpleComponent> {
-
   _DemoSimpleComponentState({this.message, this.color, this.result});
 
   final String message;
@@ -30,55 +29,25 @@ class _DemoSimpleComponentState extends State<DemoSimpleComponent> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: color,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image(
-            image: AssetImage("assets/images/acc_boom.png"),
-            color: ColorHelpers.blackOrWhiteContrastColor(color),
-            width: 260.0,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 50.0, right: 50.0, top: 15.0),
-            child: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: ColorHelpers.blackOrWhiteContrastColor(color),
-                height: 2.0,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 15.0),
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: 42.0),
-              child: FlatButton(
-                highlightColor:
-                ColorHelpers.blackOrWhiteContrastColor(color).withAlpha(17),
-                splashColor:
-                ColorHelpers.blackOrWhiteContrastColor(color).withAlpha(34),
+    return Scaffold(
+      body: new Padding(
+          padding: EdgeInsets.only(top: 40.0, left: 40.0),
+          child: new Column(
+            children: <Widget>[
+              Text("测试穿参页面 --- "),
+              SizedBox(height: 100.0),
+              Text(
+                  "测试穿参页面 \n参数：\nmessage: $message\ncolor: $color\nresult: $result "),
+              SizedBox(height: 100.0),
+              RaisedButton(
+                child: Text("返回"),
                 onPressed: () {
-                  if (result == null) {
-                    Navigator.pop(context);
-                  } else {
-                    Navigator.pop(context, result);
-                  }
+                  String result_pop = "$result --- 传参数页面的结果。";
+                  Navigator.pop(context,result_pop);
                 },
-                child: Text(
-                  "OK",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: ColorHelpers.blackOrWhiteContrastColor(color),
-                  ),
-                ),
               ),
-            ),
-          ),
-        ],
-      ),
+            ],
+          )),
     );
   }
 }
