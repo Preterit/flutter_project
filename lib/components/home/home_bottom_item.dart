@@ -39,7 +39,7 @@ List<BottomNavigationBarItem> createBarItem(_currentIndex) {
 }
 
 var _normalColor = Colors.grey;
-var _selectColor = Colors.red;
+var _selectColor = Colors.pinkAccent;
 
 Map<String, List<String>> imageUrlMap = {
   "首页": [
