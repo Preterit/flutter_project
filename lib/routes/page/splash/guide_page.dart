@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterproject/config/application.dart';
 import 'package:flutterproject/config/routes.dart';
 
@@ -10,6 +11,18 @@ class GuidePage extends StatefulWidget {
 }
 
 class _GuidePageState extends State<GuidePage> {
+  List<String> localImages = [
+    "images/bg_theme_0.png",
+    "images/bg_theme_1.png",
+    "images/bg_theme_2.png",
+    "images/bg_theme_3.png",
+    "images/bg_theme_4.png",
+    "images/bg_theme_5.png",
+    "images/bg_theme_6.png",
+    "images/bg_theme_7.png",
+    "images/bg_theme_8.png",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +33,7 @@ class _GuidePageState extends State<GuidePage> {
             Container(
               width: double.infinity,
               child: Padding(
-                padding: EdgeInsets.only(top: 50.0, left: 50.0),
+                padding: EdgeInsets.only(top: 50.0, left: 40.0),
                 child: Text(
                   "一副好看的皮囊可以为你增添\n36%的记账乐趣",
                   strutStyle: StrutStyle(forceStrutHeight: true, height: 1.85),
@@ -42,7 +55,20 @@ class _GuidePageState extends State<GuidePage> {
             Flexible(
               flex: 1,
               child: Container(
-                color: Colors.yellowAccent,
+                child: Swiper(
+                  autoplay: false,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Image.asset(
+                      localImages[index],
+                      fit: BoxFit.fill,
+                    );
+                  },
+                  loop: false,
+                  itemCount: localImages.length,
+                  viewportFraction: 0.6,
+                  scale: 0.8,
+                  onIndexChanged:_swiperPisitionChange,
+                ),
               ),
             ),
             SizedBox(height: 10.0),
@@ -71,6 +97,11 @@ class _GuidePageState extends State<GuidePage> {
 
   /// 开始使用  把选中的主题，传递到第二个页面
   void _startUse() {
-    Application.navigateTo(context, Routes.root,replace: true);
+    Application.navigateTo(context, Routes.root, replace: true);
+  }
+
+  /// 轮播图 切换 回掉
+  void _swiperPisitionChange(index){
+    print("-------- $index");
   }
 }

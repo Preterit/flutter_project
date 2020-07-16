@@ -34,6 +34,7 @@ dependencies:
   rxdart: ^0.21.0
   dio: ^3.0.9
   shared_preferences: ^0.5.7+3
+  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,7 @@ flutter:
     - images/bg_theme_8.png
     - images/bg_theme_9.png
     - images/bg_theme_10.png
+    - images/3.0x/cat.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
