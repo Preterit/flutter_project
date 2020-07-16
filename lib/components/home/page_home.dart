@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/config/application.dart';
-import 'package:flutterproject/config/route/routes.dart';
+import 'package:flutterproject/config/routes.dart';
 
 /// 主页面
 class HomePage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/config/route/routes.dart';
+import 'package:flutterproject/config/routes.dart';
 import 'package:flutterproject/routes/page/splash/splash_screen.dart';
 
 import '../../config/application.dart';

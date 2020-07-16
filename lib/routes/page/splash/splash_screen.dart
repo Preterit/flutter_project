@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/config/application.dart';
+import 'package:flutterproject/config/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,6 +35,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// 启动主页面
   void _indexPage() {
-    Application.navigateTo(context, "/",replace: true);
+    Application.navigateTo(context, Routes.guide,replace: true);
   }
 }

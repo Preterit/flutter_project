@@ -1,5 +1,5 @@
 import 'package:fluro/fluro.dart';
-import 'route_handlers.dart';
+import 'package:flutterproject/config/route_handlers.dart';
 
 class Routes {
   static String root = "/";
@@ -9,11 +9,14 @@ class Routes {
   static String deepLink = "/message";
   static String testpage = "/textpage";
 
+  static const String guide = "/guide";
+
   static void configureRoutes(Router router) {
     router.notFoundHandler = emptyHandler;
     router.define(root, handler: rootHandler);
     router.define(demoSimple, handler: demoRouteHandler);
     router.define(demoSimpleFixedTrans,
         handler: demoRouteHandler, transitionType: TransitionType.inFromLeft);
+    router.define(guide, handler: guideHandler); /// 引导页面
   }
 }
