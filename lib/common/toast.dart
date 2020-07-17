@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
 /// toast
 class ToastUtil {
-
   static const Color _backgroundColor = Color(0x1A000000);
   static const Color _textColor = Color(0xFF666666);
 
@@ -13,8 +11,8 @@ class ToastUtil {
     toastLength = Toast.LENGTH_SHORT,
     gravity = ToastGravity.BOTTOM,
     fontSize = 14.0,
-    Color backgroundColor = _backgroundColor,
-    Color textColor = _textColor,
+    Color backgroundColor = Colors.pinkAccent,
+    Color textColor = Colors.white,
   }) {
     /// 开源 Toast
     Fluttertoast.showToast(
@@ -25,5 +23,4 @@ class ToastUtil {
         textColor: textColor,
         fontSize: fontSize);
   }
-
 }

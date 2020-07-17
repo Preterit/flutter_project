@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'home_page_widget.dart';
+
 /*
  * 首页
  */
@@ -13,10 +15,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(top: 100.0),
-        margin: EdgeInsets.only(top: 100.0),
-        child: Text("首页"),
+      body: new Column(
+        children: <Widget>[
+          HomeTopWidget(),
+        ],
       ),
     );
   }

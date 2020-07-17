@@ -30,7 +30,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   fluro: ^1.6.3
-  fluttertoast: ^4.0.1
+  fluttertoast: ^7.0.1
   dio: ^3.0.9
   shared_preferences: ^0.5.7+3
   flutter_swiper: ^1.1.6
@@ -78,6 +78,12 @@ flutter:
     - assets/images/ic_skin_home_me.png
     - assets/images/ic_skin_home_property_pressed.png
     - assets/images/ic_skin_home_property.png
+
+    - assets/images/bg_skin_home_overview.png
+    - assets/images/bg_skin_newbill_money.png
+    - assets/images/ic_eye_off.png
+    - assets/images/ic_eye_on.png
+    - assets/images/ic_home_setting.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

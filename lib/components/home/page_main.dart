@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/config/application.dart';
-import 'package:flutterproject/config/routes.dart';
 
 import 'main_page_bottom_item.dart';
 
