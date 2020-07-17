@@ -53,33 +53,52 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
 
   /// 查看明细的按钮
   void _onEyeClick() {
-    setState(() {
-      _isShow = !_isShow;
-      if (!_isShow) {
-        expenditureStr = _noAmountMoneyHide;
-        incomeStr = _noInComeMoneyHide;
-        budgetMoney == 0 ? budgetStr == null : budgetStr = _noInComeMoneyHide;
-      } else {
-        expenditureStrAmount = 99.9;
-        inComeMoney = 8982.98;
-        budgetMoney = 63726.53;
+    setState(_reFreshStatus);
+  }
 
-        expenditureStrAmount > 0
-            ? expenditureStr = "¥$expenditureStrAmount"
-            : expenditureStr = _noAmountMoneyShow;
+  @override
+  void initState() {
+    setState(_reFreshStatus);
+    super.initState();
+  }
 
-        inComeMoney == 0
-            ? incomeStr = _noInComeMoneyShow
-            : incomeStr = "¥$inComeMoney";
+  /// 刷新状态
+  void _reFreshStatus() {
+    _isShow = !_isShow;
+    if (!_isShow) {
+      expenditureStr = _noAmountMoneyHide;
+      incomeStr = _noInComeMoneyHide;
+      budgetMoney == 0 ? budgetStr == null : budgetStr = _noInComeMoneyHide;
+    } else {
+//        expenditureStrAmount = 99.9;
+//        inComeMoney = 8982.98;
+//        budgetMoney = 63726.53;
 
-        budgetMoney == 0 ? budgetStr = null : budgetStr = "¥$budgetMoney";
-      }
-    });
+      expenditureStrAmount > 0
+          ? expenditureStr = "¥$expenditureStrAmount"
+          : expenditureStr = _noAmountMoneyShow;
+
+      inComeMoney == 0
+          ? incomeStr = _noInComeMoneyShow
+          : incomeStr = "¥$inComeMoney";
+
+      budgetMoney == 0 ? budgetStr = null : budgetStr = "¥$budgetMoney";
+    }
   }
 
   /// 点击 超支
   void _budgetClick() {
     ToastUtil.show("超支");
+  }
+
+  /// 点击 收入
+  void _inComeClick() {
+    ToastUtil.show("收入");
+  }
+
+  /// 点击 支出
+  void _expenditureClick() {
+    ToastUtil.show("支出");
   }
 
   @override
@@ -108,6 +127,8 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
               Row(
                 children: <Widget>[
                   Expanded(
+                      child: InkWell(
+                    onTap: _expenditureClick,
                     child: Container(
                       alignment: Alignment.centerLeft,
                       height: 50.0,
@@ -121,7 +142,7 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
                         ),
                       ),
                     ),
-                  ),
+                  )),
                   InkWell(
                     onTap: _onEyeClick,
                     child: Image.asset(
@@ -143,23 +164,26 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          "本月收入",
-                          style:
-                              TextStyle(fontSize: 13.0, color: _textGreyColor),
-                        ),
-                        SizedBox(width: 10.0),
-                        Text(
-                          incomeStr,
-                          style: TextStyle(
-                              fontSize: 13.0,
-                              color: incomeStr == _noInComeMoneyShow
-                                  ? _textGreyColor
-                                  : _textWhiteColor),
-                        ),
-                      ],
+                    child: InkWell(
+                      onTap: _inComeClick,
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            "本月收入",
+                            style: TextStyle(
+                                fontSize: 13.0, color: _textGreyColor),
+                          ),
+                          SizedBox(width: 10.0),
+                          Text(
+                            incomeStr,
+                            style: TextStyle(
+                                fontSize: 13.0,
+                                color: incomeStr == _noInComeMoneyShow
+                                    ? _textGreyColor
+                                    : _textWhiteColor),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
