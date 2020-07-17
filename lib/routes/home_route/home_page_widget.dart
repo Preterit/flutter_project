@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/common.dart';
 import 'package:flutterproject/common/toast.dart';
+import 'package:flutterproject/config/application.dart';
+import 'package:flutterproject/config/routes.dart';
 import 'package:flutterproject/util/util_sp.dart';
 
 const String _noAmountMoneyHide = "* * * * * *";
@@ -105,6 +107,7 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
   /// 点击 支出
   void _expenditureClick() {
     ToastUtil.show("支出");
+    Application.navigateTo(context, Routes.testpage);
   }
 
   @override

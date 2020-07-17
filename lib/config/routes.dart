@@ -18,5 +18,7 @@ class Routes {
     router.define(demoSimpleFixedTrans,
         handler: demoRouteHandler, transitionType: TransitionType.inFromLeft);
     router.define(guide, handler: guideHandler); /// 引导页面
+
+    router.define(testpage, handler: scrollViewHandler);
   }
 }

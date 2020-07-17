@@ -5,6 +5,7 @@ import 'package:flutterproject/routes/page/splash/guide_page.dart';
 import 'package:flutterproject/routes/page/test/demo_simple_component.dart';
 import 'package:flutterproject/components/empty/empty_page.dart';
 import 'package:flutterproject/components/home/page_main.dart';
+import 'package:flutterproject/routes/page/test/scrollView_handler.dart';
 import 'package:flutterproject/util/color_helpers.dart';
 
 var rootHandler = Handler(
@@ -33,4 +34,10 @@ var demoRouteHandler = Handler(
 var guideHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return GuidePage();
+});
+
+/// 滑动渐变
+var scrollViewHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return ScrollViewHandler();
 });
