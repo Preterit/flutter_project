@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 const String _noAmountMoneyHide = "* * * * * *";
 const String _noInComeMoneyHide = "* * *";
@@ -16,8 +15,9 @@ const Color _textWhiteColor = Colors.white;
 
 Widget getTopBg() {
   /// 顶部背景图
-  return AspectRatio(
-    aspectRatio: 16 / 9,
+  return Container(
+    width: double.infinity,
+    height: 200.0,
     child: Image.asset(
       "assets/images/bg_skin_home_overview.png",
       fit: BoxFit.fill,
@@ -52,7 +52,7 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
   double inComeMoney = 0.00;
 
   /// 查看明细的按钮
-  void _onTap() {
+  void _onEyeClick() {
     setState(() {
       _isShow = !_isShow;
       if (!_isShow) {
@@ -123,7 +123,7 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
                     ),
                   ),
                   InkWell(
-                    onTap: _onTap,
+                    onTap: _onEyeClick,
                     child: Image.asset(
                       _isShow
                           ? "assets/images/ic_eye_on.png"
