@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterproject/common/common.dart';
 import 'package:flutterproject/common/toast.dart';
+import 'package:flutterproject/util/util_sp.dart';
 
 const String _noAmountMoneyHide = "* * * * * *";
 const String _noInComeMoneyHide = "* * *";
@@ -53,18 +55,22 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
 
   /// 查看明细的按钮
   void _onEyeClick() {
-    setState(_reFreshStatus);
+    setState(() {
+      _isShow = !_isShow;
+      SpUtil.putBool(Constant.HomeTopStatus, _isShow);
+      _reFreshStatus();
+    });
   }
 
   @override
   void initState() {
-    setState(_reFreshStatus);
+    _isShow = SpUtil.getBool(Constant.HomeTopStatus);
+    _reFreshStatus();
     super.initState();
   }
 
   /// 刷新状态
   void _reFreshStatus() {
-    _isShow = !_isShow;
     if (!_isShow) {
       expenditureStr = _noAmountMoneyHide;
       incomeStr = _noInComeMoneyHide;

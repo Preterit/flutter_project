@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/config/routes.dart';
 import 'package:flutterproject/routes/page/splash/splash_screen.dart';
+import 'package:flutterproject/util/util_sp.dart';
 
 import '../../config/application.dart';
 
@@ -21,11 +22,18 @@ class AppComponentState extends State<AppComponent> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    SpUtil.getInstance();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final app = MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
       /// 配置路由
       onGenerateRoute: Application.router.generator,
       home: SplashScreen(),
