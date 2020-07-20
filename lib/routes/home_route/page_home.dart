@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page_widget.dart';
+import 'home_top_appbar.dart';
 
 /*
  * 首页
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                   _onScroll(scrollNotification.metrics.pixels);
                 }
               },
+
               child: ListView(
                 //为了实现渐变
                 children: <Widget>[
@@ -63,20 +65,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+
+          /// 滑动顶部显示的 状态栏
           Opacity(
-            //改变透明度都可以使用 Opacity 将其包裹
             opacity: appBarAlpha,
-            child: Container(
-              height: 100.0,
-              decoration: BoxDecoration(color: Colors.white),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: Image.asset("assets/images/ic_home_top_logo.png"),
-                ),
-              ),
-            ),
-          )
+            child:  HomeTopBar(),
+          ),
         ],
       ),
     );
