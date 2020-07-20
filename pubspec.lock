@@ -83,6 +83,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_gifimage:
+    dependency: "direct main"
+    description:
+      name: flutter_gifimage
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   flutter_page_indicator:
     dependency: transitive
     description:

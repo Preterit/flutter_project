@@ -1,6 +1,7 @@
 import 'package:flutter/painting.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterproject/routes/home_route/RefreshHandler.dart';
 import 'package:flutterproject/routes/page/splash/guide_page.dart';
 import 'package:flutterproject/routes/page/test/demo_simple_component.dart';
 import 'package:flutterproject/components/empty/empty_page.dart';
@@ -40,4 +41,10 @@ var guideHandler = Handler(
 var scrollViewHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return ScrollViewHandler();
+});
+
+/// 滑动渐变
+var refreshHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return RefreshHandler();
 });

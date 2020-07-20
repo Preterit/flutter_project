@@ -29,6 +29,12 @@ Widget getTopBg() {
   );
 }
 
+/*
+ * Date:2020/7/20
+ * author:lwb
+ * Desc: 首页头布局
+ */
+
 class HomeTopWidget extends StatefulWidget {
   @override
   _HomeTopWidgetState createState() => _HomeTopWidgetState();
@@ -102,6 +108,7 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
   /// 点击 收入
   void _inComeClick() {
     ToastUtil.show("收入");
+    Application.navigateTo(context, Routes.refresh);
   }
 
   /// 点击 支出

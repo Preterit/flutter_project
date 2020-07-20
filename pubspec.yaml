@@ -37,6 +37,7 @@ dependencies:
   provider: ^4.3.1
   synchronized: '>=1.5.1 <4.0.0'
   pull_to_refresh: ^1.6.0
+  flutter_gifimage: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,53 @@ flutter:
     - assets/images/ic_home_setting.png
     - assets/images/ic_home_top_logo.png
 
+    - assets/images/gifindicator1.gif
+    - assets/images/loadgif/drop_00000.png
+    - assets/images/loadgif/drop_00001.png
+    - assets/images/loadgif/drop_00002.png
+    - assets/images/loadgif/drop_00003.png
+    - assets/images/loadgif/drop_00004.png
+    - assets/images/loadgif/drop_00005.png
+    - assets/images/loadgif/drop_00006.png
+    - assets/images/loadgif/drop_00007.png
+    - assets/images/loadgif/drop_00008.png
+    - assets/images/loadgif/drop_00009.png
+    - assets/images/loadgif/drop_00010.png
+    - assets/images/loadgif/drop_00011.png
+    - assets/images/loadgif/drop_00012.png
+    - assets/images/loadgif/drop_00013.png
+    - assets/images/loadgif/drop_00014.png
+    - assets/images/loadgif/drop_00015.png
+    - assets/images/loadgif/drop_00016.png
+    - assets/images/loadgif/drop_00017.png
+    - assets/images/loadgif/drop_00018.png
+    - assets/images/loadgif/drop_00019.png
+    - assets/images/loadgif/drop_00020.png
+    - assets/images/loadgif/drop_00021.png
+    - assets/images/loadgif/drop_00022.png
+    - assets/images/loadgif/drop_00023.png
+    - assets/images/loadgif/drop_00024.png
+    - assets/images/loadgif/drop_00025.png
+    - assets/images/loadgif/drop_00026.png
+    - assets/images/loadgif/drop_00027.png
+    - assets/images/loadgif/drop_00028.png
+    - assets/images/loadgif/drop_00029.png
+    - assets/images/loadgif/drop_00030.png
+    - assets/images/loadgif/drop_00031.png
+    - assets/images/loadgif/drop_00032.png
+    - assets/images/loadgif/drop_00033.png
+    - assets/images/loadgif/drop_00034.png
+    - assets/images/loadgif/drop_00035.png
+    - assets/images/loadgif/drop_00036.png
+    - assets/images/loadgif/drop_00037.png
+    - assets/images/loadgif/drop_00038.png
+    - assets/images/loadgif/drop_00039.png
+    - assets/images/loadgif/drop_00040.png
+    - assets/images/loadgif/drop_00041.png
+    - assets/images/loadgif/drop_00042.png
+    - assets/images/loadgif/drop_00043.png
+    - assets/images/loadgif/drop_00044.png
+    - assets/images/loadgif/drop_00045.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

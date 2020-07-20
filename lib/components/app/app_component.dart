@@ -1,9 +1,11 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterproject/config/refresh_configuration.dart';
 import 'package:flutterproject/config/routes.dart';
 import 'package:flutterproject/routes/page/splash/splash_screen.dart';
 import 'package:flutterproject/util/util_sp.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../config/application.dart';
 
@@ -29,15 +31,16 @@ class AppComponentState extends State<AppComponent> {
 
   @override
   Widget build(BuildContext context) {
-    final app = MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+    return RefreshConfigurationConfig(
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
 
-      /// 配置路由
-      onGenerateRoute: Application.router.generator,
-      home: SplashScreen(),
+        /// 配置路由
+        onGenerateRoute: Application.router.generator,
+        home: SplashScreen(),
+      ),
     );
-    return app;
   }
 }

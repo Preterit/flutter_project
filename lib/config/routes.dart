@@ -11,6 +11,8 @@ class Routes {
 
   static const String guide = "/guide";
 
+  static const String refresh = "/refresh";
+
   static void configureRoutes(Router router) {
     router.notFoundHandler = emptyHandler;
     router.define(root, handler: rootHandler);
@@ -20,5 +22,6 @@ class Routes {
     router.define(guide, handler: guideHandler); /// 引导页面
 
     router.define(testpage, handler: scrollViewHandler);
+    router.define(refresh, handler: refreshHandler);
   }
 }
