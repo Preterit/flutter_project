@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'home_page_widget.dart';
 import 'home_top_appbar.dart';
 
 /*
@@ -12,66 +12,57 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-const APPBAR_SCROLL_OFFSET = 100;
+const List data = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+];
 
 class _HomePageState extends State<HomePage> {
-  double appBarAlpha = 0;
-
-  _onScroll(offset) {
-    double alpha = offset / APPBAR_SCROLL_OFFSET;
-    if (alpha < 0) {
-      alpha = 0;
-    } else if (alpha > 1) {
-      alpha = 1;
-    }
+  double appBarAlpha = 0.0; // 顶部 固定 标题的 标示
+  void onScrollChange(offset) {
     setState(() {
-      appBarAlpha = alpha;
+      if (offset != null) {
+        appBarAlpha = offset;
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          MediaQuery.removePadding(
-            //移除ListView得padding
-            removeTop: true, //移除Top
-            context: context,
-            child: NotificationListener(
-              //实现对列表得监听  --  接收 onNotification 得回调，每次滚动得时候都会回调这个函数
-              onNotification: (scrollNotification) {
-                if (scrollNotification is ScrollUpdateNotification &&
-                    scrollNotification.depth == 0) {
-                  //1、只监测ListView的滚动（深度设为0），2、监测滚动的时候（ScrollUpdateNotification）
-                  _onScroll(scrollNotification.metrics.pixels);
-                }
-              },
-
-              child: ListView(
-                //为了实现渐变
+      body: RefreshConfiguration.copyAncestor(
+        context: context,
+        maxOverScrollExtent: 100,
+        child: Scaffold(
+          body: Stack(
+            children: <Widget>[
+              Stack(
                 children: <Widget>[
-                  Container(
-                    height: 200.0,
-                    child: HomeTopWidget(),
-                  ),
-                  Container(
-                    height: 800,
-                    child: ListTile(
-                      title: Text('哈哈'),
-                    ),
-                  )
+                  /// 背景层
+                  HomeTopBg(),
+
+                  /// 列表数据层
+                  HomeCenterWidget(onScrollChange),
                 ],
               ),
-            ),
-          ),
 
-          /// 滑动顶部显示的 状态栏
-          Opacity(
-            opacity: appBarAlpha,
-            child:  HomeTopBar(),
+              /// 滑动顶部 显示 logo
+              Opacity(
+                opacity: appBarAlpha,
+                child: HomeTopBar(),
+              )
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

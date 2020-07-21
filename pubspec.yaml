@@ -88,8 +88,10 @@ flutter:
     - assets/images/ic_eye_on.png
     - assets/images/ic_home_setting.png
     - assets/images/ic_home_top_logo.png
+    - assets/images/ic_home_top_bg.png
+    - assets/images/ic_home_record_more.png
+    - assets/images/ic_home_record_pencil.png
 
-    - assets/images/gifindicator1.gif
     - assets/images/loadgif/drop_00000.png
     - assets/images/loadgif/drop_00001.png
     - assets/images/loadgif/drop_00002.png

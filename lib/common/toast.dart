@@ -10,8 +10,8 @@ class ToastUtil {
     String msg, {
     toastLength = Toast.LENGTH_SHORT,
     gravity = ToastGravity.BOTTOM,
-    fontSize = 14.0,
-    Color backgroundColor = Colors.pinkAccent,
+    fontSize = 13.0,
+    Color backgroundColor = Colors.redAccent,
     Color textColor = Colors.white,
   }) {
     /// 开源 Toast
