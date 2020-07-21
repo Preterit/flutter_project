@@ -92,6 +92,10 @@ flutter:
     - assets/images/ic_home_record_pencil.png
     - assets/images/ic_vip_yq_sliver.png
     - assets/images/ic_vip_yq_yellow.png
+    - assets/images/ic_home_item_buycar.png
+    - assets/images/ic_home_item_car.png
+    - assets/images/ic_home_item_food.png
+
 
     - assets/images/loadgif/drop_00000.png
     - assets/images/loadgif/drop_00001.png

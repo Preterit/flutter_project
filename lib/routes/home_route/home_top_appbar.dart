@@ -34,7 +34,10 @@ class HomeTopBar extends StatelessWidget {
           height: 100.0,
           child: Padding(
             padding: EdgeInsets.only(top: 20.0),
-            child: Image.asset(Img.allUrl("ic_vip_yq_sliver.png"),color: Colors.white,),
+            child: Image.asset(
+              Img.allUrl("ic_vip_yq_sliver.png"),
+              color: Colors.white,
+            ),
           ),
         ),
       ],
@@ -128,7 +131,11 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
             ),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                (c, i) => HomePageItem(title: data[i]),
+                (c, i) => HomePageItem(
+                  title: data[i]["title"],
+                  url: data[i]["url"],
+                  rightStr: data[i]["rightStr"],
+                ),
                 childCount: data.length,
               ),
               itemExtent: 100.0,
@@ -145,4 +152,3 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
     _refreshController.refreshCompleted();
   }
 }
-

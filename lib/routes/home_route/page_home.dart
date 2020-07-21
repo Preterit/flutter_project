@@ -13,17 +13,17 @@ class HomePage extends StatefulWidget {
 }
 
 const List data = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
+  {"title":"餐饮","url":"ic_home_item_buycar.png","rightStr":"¥598.98"},
+  {"title":"交通","url":"ic_home_item_car.png","rightStr":"¥1,298.98"},
+  {"title":"出行","url":"ic_home_item_food.png","rightStr":"¥59,998.98"},
+  {"title":"骑车","url":"ic_home_item_buycar.png","rightStr":"¥1,000.98"},
+  {"title":"购物","url":"ic_home_item_car.png","rightStr":"¥100,100.98"},
+  {"title":"娱乐","url":"ic_home_item_food.png","rightStr":"¥2.98"},
+  {"title":"文教","url":"ic_home_item_buycar.png","rightStr":"¥1.00"},
+  {"title":"育儿","url":"ic_home_item_car.png","rightStr":"¥4.20"},
+  {"title":"通讯","url":"ic_home_item_buycar.png","rightStr":"¥900.18"},
+  {"title":"住房","url":"ic_home_item_food.png","rightStr":"¥598.00"},
+  {"title":"零食","url":"ic_home_item_buycar.png","rightStr":"¥5.50"},
 ];
 
 class _HomePageState extends State<HomePage> {
