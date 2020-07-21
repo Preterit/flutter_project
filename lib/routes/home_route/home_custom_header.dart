@@ -32,7 +32,6 @@ class _CustomHomeHeaderState extends RefreshIndicatorState<CustomHomeHeader>
         vsync: this, duration: Duration(milliseconds: 850))
       ..repeat();
     _animation = new IntTween(begin: 1, end: 45).animate(_controller);
-    //widget.entry.lowIndex 表示从第几下标开始，如0；widget.entry.highIndex表示最大下标：如7
   }
 
   @override
@@ -44,40 +43,14 @@ class _CustomHomeHeaderState extends RefreshIndicatorState<CustomHomeHeader>
   /// 正在刷新是执行 "GIF动画"
   @override
   void onModeChange(RefreshStatus mode) {
-    switch (mode){
-      case RefreshStatus.idle:
-        /// 结束
-        print("onModeChange --- idle");
-        break;
-      case RefreshStatus.refreshing:
-        /// 刷新状态
-        print("onModeChange --- refreshing");
-        break;
-      case RefreshStatus.twoLevelOpening:
-        print("onModeChange --- twoLevelOpening");
-        break;
-    }
     super.onModeChange(mode);
   }
 
-
-  /// 刷新结束
-//  @override
-//  Future<void> endRefresh() {
-//    _gifController.value = 30;
-//    return _gifController.animateTo(59, duration: Duration(milliseconds: 500));
-//  }
 
   /// 重置状态
   @override
   void resetValue() {
     super.resetValue();
-  }
-
-  @override
-  Future<void> readyToRefresh() {
-    print("onModeChange --- readyToRefresh");
-    return super.readyToRefresh();
   }
 
   @override
@@ -91,7 +64,7 @@ class _CustomHomeHeaderState extends RefreshIndicatorState<CustomHomeHeader>
               animation: _animation,
               builder: (context, child) => creaImg(),
             ),
-            SizedBox(height:5.0),
+            SizedBox(height: 5.0),
             Text(
               tagStr,
               style: TextStyle(
