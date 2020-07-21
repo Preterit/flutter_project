@@ -5,16 +5,16 @@
  */
 import 'package:flutter/material.dart';
 
-class Item extends StatefulWidget {
+class HomePageItem extends StatefulWidget {
   final String title;
 
-  Item({this.title});
+  HomePageItem({this.title});
 
   @override
-  _ItemState createState() => _ItemState();
+  _HomePageItemState createState() => _HomePageItemState();
 }
 
-class _ItemState extends State<Item> {
+class _HomePageItemState extends State<HomePageItem> {
   @override
   Widget build(BuildContext context) {
     return Container(

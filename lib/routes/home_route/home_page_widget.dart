@@ -34,7 +34,6 @@ Widget getTopBg() {
  * author:lwb
  * Desc: 首页头布局
  */
-
 class HomeTopWidget extends StatefulWidget {
   @override
   _HomeTopWidgetState createState() => _HomeTopWidgetState();

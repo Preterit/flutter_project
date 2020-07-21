@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/routes/home_route/page_home.dart';
+import 'package:flutterproject/util/imgutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'Item.dart';
+import 'home_Item.dart';
 import 'home_center_record.dart';
 import 'home_custom_header.dart';
 import 'home_page_widget.dart';
@@ -34,7 +34,7 @@ class HomeTopBar extends StatelessWidget {
           height: 100.0,
           child: Padding(
             padding: EdgeInsets.only(top: 20.0),
-            child: Image.asset("assets/images/ic_home_top_logo.png"),
+            child: Image.asset(Img.allUrl("ic_vip_yq_sliver.png"),color: Colors.white,),
           ),
         ),
       ],
@@ -128,7 +128,7 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
             ),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                (c, i) => Item(title: data[i]),
+                (c, i) => HomePageItem(title: data[i]),
                 childCount: data.length,
               ),
               itemExtent: 100.0,
