@@ -109,6 +109,7 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
+      /// 适配刘海屏
       top: MediaQuery.of(context).padding.top,
       bottom: MediaQuery.of(context).padding.bottom,
       left: 0.0,
@@ -122,19 +123,19 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
           controller: _scrollController,
           slivers: <Widget>[
             SliverToBoxAdapter(
+              /// 头布局
               child: HomeTopWidget(),
             ),
             SliverToBoxAdapter(
               child: Container(
-                color: Colors.white,
-
                 ///  列表与top布局的 添加资产记录等布局
                 child: HomeCenterRecord(),
+                color: Colors.white,
               ),
             ),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                    (c, i) => HomePageItem(
+                (c, i) => HomePageItem(
                   title: data[i]["title"],
                   url: data[i]["url"],
                   rightStr: data[i]["rightStr"],
