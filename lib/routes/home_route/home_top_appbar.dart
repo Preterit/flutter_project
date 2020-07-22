@@ -76,7 +76,7 @@ class HomeCenterWidget extends StatefulWidget {
 class _HomeCenterWidgetState extends State<HomeCenterWidget> {
   final RefreshController _refreshController = new RefreshController();
   final ScrollController _scrollController = new ScrollController();
-  final double APPBAR_SCROLL_OFFSET = 170; // 总的偏移量
+  final double APPBAR_SCROLL_OFFSET = 100; // 总的偏移量
 
   @override
   void initState() {

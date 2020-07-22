@@ -19,6 +19,7 @@ var emptyHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return EmptyPage();
 });
+/// 测试 fluro 路由框架
 var demoRouteHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   String message = params["message"]?.first;

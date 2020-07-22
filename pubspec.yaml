@@ -95,6 +95,19 @@ flutter:
     - assets/images/ic_home_item_buycar.png
     - assets/images/ic_home_item_car.png
     - assets/images/ic_home_item_food.png
+    - assets/images/ic_mine_message.png
+    - assets/images/ic_mine_setting.png
+    - assets/images/ysf_new_message_notify.png
+    - assets/images/ic_vip_default_avatar.png
+    - assets/images/ic_me_yd_tab_ad.png
+    - assets/images/ic_qiyu_left_avatar.png
+    - assets/images/ic_vip_theme_l.png
+    - assets/images/ic_add_fund_email_netease.png
+    - assets/images/ic_mine_right_back.png
+    - assets/images/ic_me_vip.png
+    - assets/images/ic_me_service.png
+    - assets/images/ic_me_tool.webp
+    - assets/images/ic_me_theme.webp
 
 
     - assets/images/loadgif/drop_00000.png
