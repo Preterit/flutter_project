@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
+/*
+ * 记账/添加资产
+ */
 class HomeCenterRecord extends StatefulWidget {
   @override
   _HomeCenterRecordState createState() => _HomeCenterRecordState();
@@ -25,7 +28,7 @@ class _HomeCenterRecordState extends State<HomeCenterRecord> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0, bottom: 30.0),
+      margin: EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0, bottom: 10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

@@ -76,7 +76,7 @@ class HomeCenterWidget extends StatefulWidget {
 class _HomeCenterWidgetState extends State<HomeCenterWidget> {
   final RefreshController _refreshController = new RefreshController();
   final ScrollController _scrollController = new ScrollController();
-  final double APPBAR_SCROLL_OFFSET = 100; // 总的偏移量
+  final double APPBAR_SCROLL_OFFSET = 170; // 总的偏移量
 
   @override
   void initState() {
@@ -113,6 +113,7 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
       bottom: MediaQuery.of(context).padding.bottom,
       left: 0.0,
       right: 0.0,
+      // 下拉刷新/上啦加载组件
       child: SmartRefresher(
         header: CustomHomeHeader(),
         controller: _refreshController,
@@ -126,19 +127,21 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
             SliverToBoxAdapter(
               child: Container(
                 color: Colors.white,
+
+                ///  列表与top布局的 添加资产记录等布局
                 child: HomeCenterRecord(),
               ),
             ),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                (c, i) => HomePageItem(
+                    (c, i) => HomePageItem(
                   title: data[i]["title"],
                   url: data[i]["url"],
                   rightStr: data[i]["rightStr"],
                 ),
                 childCount: data.length,
               ),
-              itemExtent: 100.0,
+              itemExtent: 60.0,
             )
           ],
         ),
