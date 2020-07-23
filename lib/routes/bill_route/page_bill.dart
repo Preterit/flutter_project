@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterproject/routes/bill_route/bill_top.dart';
 
+import 'bill_content.dart';
+
 /*
  * 账单
  */
@@ -45,12 +47,15 @@ class _BillPageState extends State<BillPage>
     return Container(
       child: Column(
         children: <Widget>[
+          /// TabBar 部分
           BillTop(mController),
+
+          /// 柱状图 / 列表  部分
           Expanded(
-           child: TabBarView(
-             controller: mController,
-             children: getTabList().map((item) => Text(item)).toList(),
-           ),
+            child: TabBarView(
+              controller: mController,
+              children: getTabList().map((item) => BillContent(item)).toList(),
+            ),
           ),
         ],
       ),
