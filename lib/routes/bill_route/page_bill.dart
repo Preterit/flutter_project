@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterproject/common/toast.dart';
-import 'package:flutterproject/util/imgutil.dart';
+import 'package:flutterproject/routes/bill_route/bill_top.dart';
 
 /*
  * 账单
@@ -12,55 +11,48 @@ class BillPage extends StatefulWidget {
   _BillPageState createState() => _BillPageState();
 }
 
-class _BillPageState extends State<BillPage> {
+List getTabList() => [
+      '1月',
+      '2月',
+      '3月',
+      '4月',
+      '5月',
+      '6月',
+      '7月',
+      '8月',
+      '9月',
+      '10月',
+      '11月',
+      '12月',
+    ];
+
+class _BillPageState extends State<BillPage>
+    with SingleTickerProviderStateMixin {
+  TabController mController;
+
+  @override
+  void initState() {
+    super.initState();
+    mController = TabController(
+      length: getTabList().length,
+      vsync: this,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return Container(
-      height: 150.0,
-      width: double.infinity,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 15),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            Img.allUrl("ic_home_top_bg.png"),
-          ),
-          fit: BoxFit.cover,
-        ),
-      ),
       child: Column(
         children: <Widget>[
-          Stack(
-            children: <Widget>[
-              Center(
-                child: Text(
-                  "账单",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                margin: EdgeInsets.only(right: 10.0),
-                child: InkWell(
-                  onTap: _moreClick,
-                  child: Image.asset(
-                    Img.allUrl("ic_home_record_more.png"),
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
+          BillTop(mController),
+          Expanded(
+            child: Container(
+              child: Text('sksksksks'),
+            ),
           ),
         ],
       ),
     );
   }
-}
-
-/// 更多
-void _moreClick() {
-  ToastUtil.show("more");
 }

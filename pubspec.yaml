@@ -108,6 +108,8 @@ flutter:
     - assets/images/ic_me_service.png
     - assets/images/ic_me_tool.webp
     - assets/images/ic_me_theme.webp
+    - assets/images/ic_bill_down.png
+    - assets/images/ic_nill_shaixuan.png
 
 
     - assets/images/loadgif/drop_00000.png
