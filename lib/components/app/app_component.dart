@@ -1,11 +1,11 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterproject/config/refresh_configuration.dart';
 import 'package:flutterproject/config/routes.dart';
 import 'package:flutterproject/routes/page/splash/splash_screen.dart';
 import 'package:flutterproject/util/util_sp.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../config/application.dart';
 
@@ -31,6 +31,14 @@ class AppComponentState extends State<AppComponent> {
 
   @override
   Widget build(BuildContext context) {
+    // 除半透明状态栏
+    if (Theme.of(context).platform == TargetPlatform.android) {
+      // android 平台
+      SystemUiOverlayStyle _style =
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+      SystemChrome.setSystemUIOverlayStyle(_style);
+    }
+
     return RefreshConfigurationConfig(
       child: MaterialApp(
         theme: ThemeData(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterproject/routes/home_route/home_center_record.dart';
 
 import 'mine_advertising.dart';
@@ -18,6 +19,8 @@ class MinePage extends StatefulWidget {
 class _MinePageState extends State<MinePage> {
   @override
   Widget build(BuildContext context) {
+    //白色
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return CustomScrollView(
       slivers: <Widget>[
         SliverToBoxAdapter(
