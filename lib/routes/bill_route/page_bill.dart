@@ -47,9 +47,10 @@ class _BillPageState extends State<BillPage>
         children: <Widget>[
           BillTop(mController),
           Expanded(
-            child: Container(
-              child: Text('sksksksks'),
-            ),
+           child: TabBarView(
+             controller: mController,
+             children: getTabList().map((item) => Text(item)).toList(),
+           ),
           ),
         ],
       ),
