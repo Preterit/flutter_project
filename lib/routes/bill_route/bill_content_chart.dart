@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
+import 'bill_barchart.dart';
+
 class BillContentChart extends StatefulWidget {
   @override
   _BillContentChartState createState() => _BillContentChartState();
@@ -28,7 +30,6 @@ class _BillContentChartState extends State<BillContentChart> {
           ),
           Container(
             width: double.infinity,
-            height: 200.0,
             child: Card(
               margin: EdgeInsets.only(left: 10.0, right: 10.0),
               elevation: 15.0, //设置阴影
@@ -44,7 +45,7 @@ class _BillContentChartState extends State<BillContentChart> {
                       ),
                     ],
                   ),
-                  Text("柱状图"),
+                  BillBarChart(),
                 ],
               ),
             ),

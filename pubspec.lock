@@ -71,6 +71,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.9"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.2.2"
+  fl_chart:
+    dependency: "direct main"
+    description:
+      name: fl_chart
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.10.1"
   fluro:
     dependency: "direct main"
     description:
@@ -163,6 +177,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.6.4"
+  path_drawing:
+    dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.1"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.4"
   petitparser:
     dependency: transitive
     description:

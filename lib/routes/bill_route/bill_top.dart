@@ -6,6 +6,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
+import 'package:flutterproject/config/application.dart';
+import 'package:flutterproject/config/routes.dart';
 import 'package:flutterproject/routes/bill_route/page_bill.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
@@ -54,7 +56,9 @@ class _BillTopState extends State<BillTop> {
                       alignment: Alignment.centerRight,
                       margin: EdgeInsets.only(right: 10.0),
                       child: InkWell(
-                        onTap: _moreClick,
+                        onTap: (){
+                          Application.navigateTo(context, Routes.barChart, replace: true);
+                        },
                         child: Image.asset(
                           Img.allUrl("ic_home_record_more.png"),
                           color: Colors.white,

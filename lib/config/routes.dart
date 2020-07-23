@@ -13,6 +13,8 @@ class Routes {
 
   static const String refresh = "/refresh";
 
+  static const String barChart = "/barChart";  // 柱状图
+
   static void configureRoutes(Router router) {
     router.notFoundHandler = emptyHandler;
     router.define(root, handler: rootHandler);
@@ -23,5 +25,6 @@ class Routes {
 
     router.define(testpage, handler: scrollViewHandler);
     router.define(refresh, handler: refreshHandler);
+    router.define(barChart, handler: barChartHandler);
   }
 }

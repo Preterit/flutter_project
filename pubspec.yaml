@@ -38,6 +38,7 @@ dependencies:
   synchronized: '>=1.5.1 <4.0.0'
   pull_to_refresh: ^1.6.0
   flutter_gifimage: ^1.0.0
+  fl_chart: ^0.10.1
 
 dev_dependencies:
   flutter_test:
