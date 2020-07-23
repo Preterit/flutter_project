@@ -10,14 +10,13 @@ import 'package:flutterproject/routes/bill_route/page_bill.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
 class BillTop extends StatefulWidget {
-
   final TabController mController;
+  final String tabTitle;
 
-  BillTop(this.mController);
+  BillTop(this.mController, this.tabTitle);
 
   @override
   _BillTopState createState() => _BillTopState();
-
 }
 
 class _BillTopState extends State<BillTop> {
@@ -41,7 +40,7 @@ class _BillTopState extends State<BillTop> {
             children: <Widget>[
               Center(
                 child: Text(
-                  "账单",
+                  widget.tabTitle,
                   style: TextStyle(
                     fontSize: 19.0,
                     color: Colors.white,
@@ -50,17 +49,19 @@ class _BillTopState extends State<BillTop> {
               ),
 
               /// 更多按钮
-              Container(
-                alignment: Alignment.centerRight,
-                margin: EdgeInsets.only(right: 10.0),
-                child: InkWell(
-                  onTap: _moreClick,
-                  child: Image.asset(
-                    Img.allUrl("ic_home_record_more.png"),
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              widget.tabTitle != "报表"
+                  ? Container(
+                      alignment: Alignment.centerRight,
+                      margin: EdgeInsets.only(right: 10.0),
+                      child: InkWell(
+                        onTap: _moreClick,
+                        child: Image.asset(
+                          Img.allUrl("ic_home_record_more.png"),
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  : Text("")
             ],
           ),
 
@@ -161,6 +162,7 @@ class _BillTopState extends State<BillTop> {
 void _moreClick() {
   ToastUtil.show("more");
 }
+
 /// 选择年月
 void _chooseDate() {
   ToastUtil.show("Date");
@@ -170,4 +172,3 @@ void _chooseDate() {
 void _chooseClick() {
   ToastUtil.show("筛选");
 }
-

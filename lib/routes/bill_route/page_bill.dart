@@ -48,7 +48,7 @@ class _BillPageState extends State<BillPage>
       child: Column(
         children: <Widget>[
           /// TabBar 部分
-          BillTop(mController),
+          BillTop(mController,"账单"),
 
           /// 柱状图 / 列表  部分
           Expanded(
