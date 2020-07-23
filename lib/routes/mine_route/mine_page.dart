@@ -44,7 +44,7 @@ class _MinePageState extends State<MinePage> {
             (c, i) => MineItemBuilder(data[i]),
             childCount: data.length,
           ),
-          itemExtent: 45.0,
+          itemExtent: 48.0,
         )
       ],
     );

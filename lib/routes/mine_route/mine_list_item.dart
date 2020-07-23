@@ -22,7 +22,6 @@ class _MineItemBuilderState extends State<MineItemBuilder> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 20.0, right: 20.0),
-      color: Colors.white,
       child: Column(
         children: <Widget>[
           Expanded(
@@ -59,8 +58,8 @@ class _MineItemBuilderState extends State<MineItemBuilder> {
             ),
           ),
           Divider(
-            height: 1.0,
-            color: Color.fromARGB(255, 248, 248, 248),
+            height: 1.5,
+            color: Color.fromARGB(255, 230, 230, 230),
           ),
         ],
       ),

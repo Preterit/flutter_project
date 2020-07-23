@@ -23,7 +23,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: mainPageList[_currentIndex],
+      body: Container(
+        child: mainPageList[_currentIndex],
+        color: Colors.white,
+      ),
       bottomNavigationBar:HomeBottomNavBar(_currentIndex,_onTap)
     );
   }
