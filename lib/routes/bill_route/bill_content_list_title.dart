@@ -7,11 +7,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-//enum OrderType {
-//  ORDER_BY_TIME,
-//  ORDER_BY_PRICE,
-//}
-
 class BillContentListTitle extends StatefulWidget {
   final Function listTypeChange;
 
@@ -22,12 +17,13 @@ class BillContentListTitle extends StatefulWidget {
 }
 
 class _BillContentListTitleState extends State<BillContentListTitle> {
+  // 列表排序
   var order_type = 1;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0, bottom: 20.0),
+      margin: EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0, bottom: 10.0),
       child: Row(
         children: <Widget>[
           Expanded(
