@@ -63,7 +63,7 @@ class _BillContentChartState extends State<BillContentChart> {
           var item = data[i];
           if (index == i) {
             item["isCheck"] = true;
-          }else{
+          } else {
             item["isCheck"] = false;
           }
         }

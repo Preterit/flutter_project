@@ -20,8 +20,10 @@ class BillBarChart extends StatefulWidget {
 }
 
 class _BillBarChartState extends State<BillBarChart> {
+
   @override
   void initState() {
+    DateTime time = DateTime.now();
     super.initState();
   }
 
@@ -29,23 +31,32 @@ class _BillBarChartState extends State<BillBarChart> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(left: 10.0, right: 10.0,top: 20),
-      child: AspectRatio(
-        aspectRatio: 16 / 9,
-        child: BarChart(mainBarData()),
+      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 20),
+      child: Stack(
+        children: <Widget>[
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: BarChart(lineBarData()),
+          ),
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: BarChart(mainBarData()),
+          ),
+        ],
       ),
     );
   }
 
   BarChartData mainBarData() {
     return BarChartData(
+      alignment: BarChartAlignment.spaceAround,
       barTouchData: BarTouchData(
         /// 点击之后显示在 该点的 Mark
         touchTooltipData: BarTouchTooltipData(
             tooltipBgColor: Colors.green,
             getTooltipItem: (group, groupIndex, rod, rodIndex) {
               String weekDay = "测试";
-              return BarTooltipItem(weekDay  + (rod.y - 1).toString(),
+              return BarTooltipItem(weekDay + (rod.y - 1).toString(),
                   TextStyle(color: Colors.yellow));
             }),
 
@@ -74,7 +85,7 @@ class _BillBarChartState extends State<BillBarChart> {
     );
   }
 
-  /**
+  /*
    * 柱状图数据
    */
   BarChartGroupData makeGroupData(
@@ -91,17 +102,14 @@ class _BillBarChartState extends State<BillBarChart> {
         BarChartRodData(
           y: isTouched ? y + 1 : y,
           width: width,
-          backDrawRodData: BackgroundBarChartRodData(
-            show: true,
-            color: Colors.transparent,
-          ),
+          color: barColor,
         ),
       ],
       showingTooltipIndicators: showTooltips,
     );
   }
 
-  /**
+  /*
    *  底部 X 轴显示的 label
    */
   SideTitles _getBottomSide() {
@@ -127,10 +135,59 @@ class _BillBarChartState extends State<BillBarChart> {
     );
   }
 
-  /**
+  /*
    * 获取 该月的 天数
    */
   List<BarChartGroupData> _showingGroups() => List.generate(31, (i) {
         return makeGroupData(i, Random().nextInt(50).toDouble());
+      });
+
+  /*
+   * 柱状图后面的线
+   */
+  BarChartData lineBarData() {
+    return BarChartData(
+      alignment: BarChartAlignment.spaceAround,
+      barTouchData: BarTouchData(
+        enabled: false,
+      ),
+
+      /// X / Y 轴的属性 配置.
+      titlesData: FlTitlesData(
+        show: true,
+
+        /// X轴属性
+        bottomTitles: _getBottomSide(),
+
+        /// 左侧 Y轴属性
+        leftTitles: SideTitles(
+          showTitles: false,
+        ),
+      ),
+
+      /// 柱状图边框
+      borderData: FlBorderData(
+        show: false,
+      ),
+
+      barGroups: _showingLines(),
+    );
+  }
+
+  /*
+   * 获取 柱状图 背景的 线
+   */
+  List<BarChartGroupData> _showingLines() => List.generate(31, (i) {
+        return BarChartGroupData(
+          x: i,
+          barRods: [
+            BarChartRodData(
+              y: 100,
+              width: 1,
+              color: Color.fromARGB(255, 230, 230, 230),
+            ),
+          ],
+          showingTooltipIndicators: [],
+        );
       });
 }
