@@ -29,7 +29,7 @@ class _BillBarChartState extends State<BillBarChart> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+      padding: EdgeInsets.only(left: 10.0, right: 10.0,top: 20),
       child: AspectRatio(
         aspectRatio: 16 / 9,
         child: BarChart(mainBarData()),
@@ -45,7 +45,7 @@ class _BillBarChartState extends State<BillBarChart> {
             tooltipBgColor: Colors.green,
             getTooltipItem: (group, groupIndex, rod, rodIndex) {
               String weekDay = "测试";
-              return BarTooltipItem(weekDay + '\n' + (rod.y - 1).toString(),
+              return BarTooltipItem(weekDay  + (rod.y - 1).toString(),
                   TextStyle(color: Colors.yellow));
             }),
 
