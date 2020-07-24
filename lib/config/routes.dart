@@ -25,6 +25,5 @@ class Routes {
 
     router.define(testpage, handler: scrollViewHandler);
     router.define(refresh, handler: refreshHandler);
-    router.define(barChart, handler: barChartHandler);
   }
 }

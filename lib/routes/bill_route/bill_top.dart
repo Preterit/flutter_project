@@ -57,7 +57,7 @@ class _BillTopState extends State<BillTop> {
                       margin: EdgeInsets.only(right: 10.0),
                       child: InkWell(
                         onTap: (){
-                          Application.navigateTo(context, Routes.barChart, replace: true);
+                          Application.navigateTo(context, Routes.barChart);
                         },
                         child: Image.asset(
                           Img.allUrl("ic_home_record_more.png"),

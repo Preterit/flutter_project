@@ -32,7 +32,7 @@ class _BillContentChartState extends State<BillContentChart> {
             width: double.infinity,
             child: Card(
               margin: EdgeInsets.only(left: 10.0, right: 10.0),
-              elevation: 15.0, //设置阴影
+              elevation: 5.0, //设置阴影
               child: Column(
                 children: <Widget>[
                   Row(
@@ -45,7 +45,7 @@ class _BillContentChartState extends State<BillContentChart> {
                       ),
                     ],
                   ),
-                  BillBarChart(),
+                  BillBarChart(7)
                 ],
               ),
             ),

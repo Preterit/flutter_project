@@ -1,7 +1,6 @@
 import 'package:flutter/painting.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/routes/bill_route/bar_chart_sample1.dart';
 import 'package:flutterproject/routes/home_route/RefreshHandler.dart';
 import 'package:flutterproject/routes/page/splash/guide_page.dart';
 import 'package:flutterproject/routes/page/test/demo_simple_component.dart';
@@ -51,8 +50,3 @@ var refreshHandler = Handler(
   return RefreshHandler();
 });
 
-/// 滑动渐变
-var barChartHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return BarChartSample1();
-});
