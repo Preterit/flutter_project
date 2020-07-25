@@ -1,27 +1,27 @@
 /*
 * Date:2020/7/23
 * author:lwb
-* Desc: 账单页面 - 内容区域
+* Desc: 报表页面 - 内容区域
 */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
+import 'package:flutterproject/routes/bill_route/bill_content_list_title.dart';
+import 'package:flutterproject/routes/chart_route/chart_list_data.dart';
 import 'package:flutterproject/routes/home_route/home_Item.dart';
 import 'package:flutterproject/util/imgutil.dart';
+import 'chart_top_content.dart';
 
-import 'bill_content_chart.dart';
-import 'bill_content_list_title.dart';
-
-class BillContent extends StatefulWidget {
+class ChartContent extends StatefulWidget {
   final dynamic item;
 
-  BillContent(this.item);
+  ChartContent(this.item);
 
   @override
-  _BillContentState createState() => _BillContentState();
+  _ChartContentState createState() => _ChartContentState();
 }
 
-class _BillContentState extends State<BillContent> {
+class _ChartContentState extends State<ChartContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,10 +35,10 @@ class _BillContentState extends State<BillContent> {
           CustomScrollView(
             slivers: <Widget>[
               SliverToBoxAdapter(
-                ///  Card 柱状图部分
+                ///  Card 饼状图部分
                 child:Container(
                   color: Colors.white,
-                  child:  BillContentChart(),
+                  child:  ChartTopContent(),
                 )
               ),
               SliverToBoxAdapter(
@@ -59,11 +59,11 @@ class _BillContentState extends State<BillContent> {
               SliverFixedExtentList(
                 delegate: SliverChildBuilderDelegate(
                   (c, i) => HomePageItem(
-                    title: billData[i]["title"],
-                    url: billData[i]["url"],
-                    rightStr: billData[i]["rightStr"],
+                    title: chartListData[i]["title"],
+                    url: chartListData[i]["url"],
+                    rightStr: chartListData[i]["rightStr"],
                   ),
-                  childCount: billData.length,
+                  childCount: chartListData.length,
                 ),
                 itemExtent: 48.0,
               )
@@ -80,17 +80,3 @@ class _BillContentState extends State<BillContent> {
     });
   }
 }
-
-const List billData = [
-  {"title": "餐饮", "url": "ic_home_item_buycar.png", "rightStr": "¥598.98"},
-  {"title": "交通", "url": "ic_home_item_car.png", "rightStr": "¥1,298.98"},
-  {"title": "出行", "url": "ic_home_item_food.png", "rightStr": "¥59,998.98"},
-  {"title": "骑车", "url": "ic_home_item_buycar.png", "rightStr": "¥1,000.98"},
-  {"title": "购物", "url": "ic_home_item_car.png", "rightStr": "¥100,100.98"},
-  {"title": "娱乐", "url": "ic_home_item_food.png", "rightStr": "¥2.98"},
-  {"title": "文教", "url": "ic_home_item_buycar.png", "rightStr": "¥1.00"},
-  {"title": "育儿", "url": "ic_home_item_car.png", "rightStr": "¥4.20"},
-  {"title": "通讯", "url": "ic_home_item_buycar.png", "rightStr": "¥900.18"},
-  {"title": "住房", "url": "ic_home_item_food.png", "rightStr": "¥598.00"},
-  {"title": "零食", "url": "ic_home_item_buycar.png", "rightStr": "¥5.50"},
-];

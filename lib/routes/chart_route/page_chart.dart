@@ -4,6 +4,8 @@ import 'package:flutterproject/routes/bill_route/bill_content.dart';
 import 'package:flutterproject/routes/bill_route/bill_top.dart';
 import 'package:flutterproject/routes/bill_route/page_bill.dart';
 
+import 'chart_content.dart';
+
 /*
  * 报表
  */
@@ -37,7 +39,7 @@ class _ChartPageState extends State<ChartPage>
           Expanded(
             child: TabBarView(
               controller: mController,
-              children: getTabList().map((item) => BillContent(item)).toList(),
+              children: getTabList().map((item) => ChartContent(item)).toList(),
             ),
           ),
         ],
