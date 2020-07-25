@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/routes/bill_route/bill_barchart.dart';
 import 'package:flutterproject/routes/bill_route/bill_content_chart.dart';
+import 'package:flutterproject/routes/chart_route/top_piechart.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
 class ChartTopContent extends StatefulWidget {
@@ -40,7 +41,7 @@ class _ChartTopContentState extends State<ChartTopContent> {
                       children: _getInk()),
 
                   ///  饼状图
-                  BillBarChart(7)
+                  TopPieChart(7)
                 ],
               ),
             ),
@@ -106,6 +107,9 @@ class _ChartTopContentState extends State<ChartTopContent> {
   }
 }
 
+/*
+ *  饼状图 类型选择 的数据
+ */
 List _data = [
   {
     "id": 0,
