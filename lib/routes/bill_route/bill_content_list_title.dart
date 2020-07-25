@@ -23,7 +23,8 @@ class _BillContentListTitleState extends State<BillContentListTitle> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0, bottom: 10.0),
+      color: Colors.white,
+      padding: EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0, bottom: 10.0),
       child: Row(
         children: <Widget>[
           Expanded(

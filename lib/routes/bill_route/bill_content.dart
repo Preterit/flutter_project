@@ -4,8 +4,10 @@
 * Desc: 账单页面 - 内容区域
 */
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/routes/home_route/home_Item.dart';
+import 'package:flutterproject/util/imgutil.dart';
 
 import 'bill_content_chart.dart';
 import 'bill_content_list_title.dart';
@@ -23,36 +25,49 @@ class _BillContentState extends State<BillContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverToBoxAdapter(
-            ///  内容区域图标部分
-            child: BillContentChart(),
+      child: Stack(
+        children: <Widget>[
+          Image.asset(
+            Img.allUrl("ic_home_top_bg.png"),
+            height: MediaQuery.of(context).size.height/2,
+            fit: BoxFit.cover,
           ),
-          SliverToBoxAdapter(
-            ///  内容区域图标部分
-            child: BillContentListTitle(_listTypeChange),
-          ),
-          SliverToBoxAdapter(
-            ///  内容区域图标部分
-            child: Container(
-              margin: EdgeInsets.only(left: 15.0),
-              child: Text(
-                "2020年7月22日 星期三",
-                style: TextStyle(fontSize: 11.0),
+          CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                ///  Card 柱状图部分
+                child:Container(
+                  color: Colors.white,
+                  child:  BillContentChart(),
+                )
               ),
-            ),
-          ),
-          SliverFixedExtentList(
-            delegate: SliverChildBuilderDelegate(
-              (c, i) => HomePageItem(
-                title: data[i]["title"],
-                url: data[i]["url"],
-                rightStr: data[i]["rightStr"],
+              SliverToBoxAdapter(
+                ///  内容区域图标部分
+                child: BillContentListTitle(_listTypeChange),
               ),
-              childCount: data.length,
-            ),
-            itemExtent: 48.0,
+              SliverToBoxAdapter(
+                ///  内容区域图标部分
+                child: Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Text(
+                    "2020年7月22日 星期三",
+                    style: TextStyle(fontSize: 11.0),
+                  ),
+                ),
+              ),
+              SliverFixedExtentList(
+                delegate: SliverChildBuilderDelegate(
+                  (c, i) => HomePageItem(
+                    title: data[i]["title"],
+                    url: data[i]["url"],
+                    rightStr: data[i]["rightStr"],
+                  ),
+                  childCount: data.length,
+                ),
+                itemExtent: 48.0,
+              )
+            ],
           )
         ],
       ),

@@ -26,8 +26,7 @@ class _BillTopState extends State<BillTop> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 128.0,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 15),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 1,bottom: 10.0),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
