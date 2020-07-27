@@ -10,7 +10,7 @@ class CustomHomeHeader extends RefreshIndicator {
   final int durationSeconds;
 
   CustomHomeHeader({this.durationSeconds = 1})
-      : super(height: 80.0, refreshStyle: RefreshStyle.Follow);
+      : super(height: 110.0, refreshStyle: RefreshStyle.Follow);
 
   @override
   _CustomHomeHeaderState createState() {
@@ -83,6 +83,7 @@ class _CustomHomeHeaderState extends RefreshIndicatorState<CustomHomeHeader>
 //      imgUrlList[_animation.value],
       "assets/images/loadgif/drop_000${_animation.value < 10 ? "0${_animation.value}" : _animation.value}.png",
       gaplessPlayback: true, //避免图片闪烁
+      color: Color(0xFFFFFFFF),
       width: 50.0,
       height: 50.0,
     );

@@ -110,7 +110,7 @@ class _HomeCenterWidgetState extends State<HomeCenterWidget> {
   Widget build(BuildContext context) {
     return Positioned(
       /// 适配刘海屏
-      top: MediaQuery.of(context).padding.top,
+      top:0.0,
       bottom: MediaQuery.of(context).padding.bottom,
       left: 0.0,
       right: 0.0,

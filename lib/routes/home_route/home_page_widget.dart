@@ -21,7 +21,7 @@ Widget getTopBg() {
   /// 顶部背景图
   return Container(
     width: double.infinity,
-    height: 170.0,
+    height: 180.0,
     child: Image.asset(
       "assets/images/bg_skin_home_overview.png",
       fit: BoxFit.fill,
@@ -124,7 +124,7 @@ class _HomeTopWidgetState extends State<HomeTopWidget> {
         getTopBg(),
         Padding(
           padding:
-              EdgeInsets.only(top:40.0, left: 15.0, right: 20.0, bottom: 10.0),
+              EdgeInsets.only(top:50.0, left: 15.0, right: 20.0, bottom: 10.0),
           child: Column(
             children: <Widget>[
               Container(
