@@ -5,6 +5,9 @@
 */
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+
+import 'model.dart';
 
 class TopPieChart extends StatefulWidget {
   final int currentMonth;
@@ -26,84 +29,47 @@ class _TopPieChartState extends State<TopPieChart> {
         children: <Widget>[
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: PieChart(
-              PieChartData(
-                  pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
-                    setState(() {
-                      if (pieTouchResponse.touchInput is FlLongPressEnd ||
-                          pieTouchResponse.touchInput is FlPanEnd) {
-                        touchedIndex = -1;
-                      } else {
-                        touchedIndex = pieTouchResponse.touchedSectionIndex;
-                      }
-                    });
-                  }),
-                  borderData: FlBorderData(
-                    show: false,
-                  ),
-                  sectionsSpace: 0,
-                  centerSpaceRadius: 40,
-                  sections: showingSections()),
-            ),
+            child: getDefaultDoughnutChart(),
           ),
         ],
       ),
     );
   }
 
-  List<PieChartSectionData> showingSections() {
-    return List.generate(4, (i) {
-      final isTouched = i == touchedIndex;
-      final double fontSize = isTouched ? 25 : 16;
-      final double radius = isTouched ? 60 : 50;
-      switch (i) {
-        case 0:
-          return PieChartSectionData(
-            color: const Color(0xff0293ee),
-            value: 40,
-            title: '40%',
-            radius: radius,
-            titleStyle: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xffffffff)),
-          );
-        case 1:
-          return PieChartSectionData(
-            color: const Color(0xfff8b250),
-            value: 30,
-            title: '30%',
-            radius: radius,
-            titleStyle: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xffffffff)),
-          );
-        case 2:
-          return PieChartSectionData(
-            color: const Color(0xff845bef),
-            value: 15,
-            title: '15%',
-            radius: radius,
-            titleStyle: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xffffffff)),
-          );
-        case 3:
-          return PieChartSectionData(
-            color: const Color(0xff13d38e),
-            value: 15,
-            title: '15%',
-            radius: radius,
-            titleStyle: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xffffffff)),
-          );
-        default:
-          return null;
-      }
-    });
+  SfCircularChart getDefaultDoughnutChart() {
+    return SfCircularChart(
+      title: ChartTitle(text: ''),
+      series: getDefaultDoughnutSeries(),
+      tooltipBehavior: TooltipBehavior(enable: true),
+    );
+  }
+
+  /// Returns the list of doughnut series which need to be render.
+  List<DoughnutSeries<ChartSampleData, String>> getDefaultDoughnutSeries() {
+    final List<ChartSampleData> chartData = <ChartSampleData>[
+      ChartSampleData(x: '餐饮', y: 55, text: '55%'),
+      ChartSampleData(x: '交通', y: 31, text: '31%'),
+      ChartSampleData(x: '骑车', y: 47, text: '47%'),
+      ChartSampleData(x: '娱乐', y: 50, text: '50%'),
+      ChartSampleData(x: '文教', y: 29, text: '29%'),
+      ChartSampleData(x: '通讯', y: 37, text: '37%'),
+    ];
+
+    return <DoughnutSeries<ChartSampleData, String>>[
+      DoughnutSeries<ChartSampleData, String>(
+        radius: '80%',
+        dataSource: chartData,
+        xValueMapper: (ChartSampleData data, _) => data.x,
+        yValueMapper: (ChartSampleData data, _) => data.y,
+        dataLabelMapper: (ChartSampleData data, _) => data.text,
+        dataLabelSettings: DataLabelSettings(
+          isVisible: true,
+          showZeroValue:  true,
+          labelPosition: ChartDataLabelPosition.outside,
+          connectorLineSettings:
+              ConnectorLineSettings(type: ConnectorType.curve),
+        ),
+      )
+    ];
   }
 }
