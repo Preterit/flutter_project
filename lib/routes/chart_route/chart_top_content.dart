@@ -5,8 +5,6 @@
 */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/routes/bill_route/bill_barchart.dart';
-import 'package:flutterproject/routes/bill_route/bill_content_chart.dart';
 import 'package:flutterproject/routes/chart_route/top_piechart.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
