@@ -29,17 +29,17 @@ class _ChartContentState extends State<ChartContent> {
         children: <Widget>[
           Image.asset(
             Img.allUrl("ic_home_top_bg.png"),
-            height: MediaQuery.of(context).size.height/2,
+            height: MediaQuery.of(context).size.height / 2,
             fit: BoxFit.cover,
           ),
           CustomScrollView(
             slivers: <Widget>[
+              ///  Card 饼状图部分
               SliverToBoxAdapter(
-                ///  Card 饼状图部分
-                child:Container(
+                child: Container(
                   color: Colors.white,
-                  child:  ChartTopContent(),
-                )
+                  child: ChartTopContent(),
+                ),
               ),
               SliverToBoxAdapter(
                 ///  内容区域图标部分

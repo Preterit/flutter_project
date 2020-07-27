@@ -22,7 +22,6 @@ class _TopPieChartState extends State<TopPieChart> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 20),
       child: Stack(
         children: <Widget>[
           AspectRatio(
