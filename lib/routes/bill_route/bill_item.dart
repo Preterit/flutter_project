@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
+/*
+ * 账单列表 -- 根据时间排序
+ */
 class BillTimeItem extends StatelessWidget {
   final dynamic item;
 
@@ -83,6 +86,9 @@ class BillTimeItem extends StatelessWidget {
   }
 }
 
+/*
+ * 账单列表 -- 根据金钱排序
+ */
 class BillPriceItem extends StatelessWidget {
   final dynamic item;
 
