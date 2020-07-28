@@ -6,11 +6,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
-import 'package:flutterproject/routes/home_route/home_Item.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
 import 'bill_content_chart.dart';
 import 'bill_content_list_title.dart';
+import 'bill_item.dart';
 
 class BillContent extends StatefulWidget {
   final dynamic item;
@@ -29,49 +29,54 @@ class _BillContentState extends State<BillContent> {
         children: <Widget>[
           Image.asset(
             Img.allUrl("ic_home_top_bg.png"),
-            height: MediaQuery.of(context).size.height/2,
+            height: MediaQuery.of(context).size.height / 2,
             fit: BoxFit.cover,
           ),
           CustomScrollView(
             slivers: <Widget>[
+              ///  Card 柱状图部分
               SliverToBoxAdapter(
-                ///  Card 柱状图部分
-                child:Container(
+                child: Container(
                   color: Colors.white,
-                  child:  BillContentChart(),
-                )
+                  child: BillContentChart(),
+                ),
               ),
               SliverToBoxAdapter(
                 ///  内容区域图标部分
                 child: BillContentListTitle(_listTypeChange),
               ),
-              SliverToBoxAdapter(
-                ///  内容区域图标部分
-                child: Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    "2020年7月22日 星期三",
-                    style: TextStyle(fontSize: 11.0),
-                  ),
-                ),
-              ),
-              SliverFixedExtentList(
+              SliverList(
                 delegate: SliverChildBuilderDelegate(
-                  (c, i) => HomePageItem(
-                    title: billData[i]["title"],
-                    url: billData[i]["url"],
-                    rightStr: billData[i]["rightStr"],
-                  ),
+                  (c, i) {
+                    return _getBillItem(i);
+                  },
                   childCount: billData.length,
                 ),
-                itemExtent: 48.0,
               )
             ],
           )
         ],
       ),
     );
+  }
+
+  /*
+   * 账单页面 按照时间排序
+   */
+  Widget _getBillItem(index) {
+    var data = billData[index];
+    if (index == 0) {
+      data["isShowTitle"] = true;
+    } else {
+      if (billData[index - 1]["time"] != data["time"]) {
+        data["isShowTitle"] = true;
+      } else {
+        data["isShowTitle"] = false;
+      }
+    }
+
+    /// 注意 条目 的要有高度
+    return BillTimeItem(data);
   }
 
   void _listTypeChange(order_type) {
@@ -81,16 +86,82 @@ class _BillContentState extends State<BillContent> {
   }
 }
 
-const List billData = [
-  {"title": "餐饮", "url": "ic_home_item_buycar.png", "rightStr": "¥598.98"},
-  {"title": "交通", "url": "ic_home_item_car.png", "rightStr": "¥1,298.98"},
-  {"title": "出行", "url": "ic_home_item_food.png", "rightStr": "¥59,998.98"},
-  {"title": "骑车", "url": "ic_home_item_buycar.png", "rightStr": "¥1,000.98"},
-  {"title": "购物", "url": "ic_home_item_car.png", "rightStr": "¥100,100.98"},
-  {"title": "娱乐", "url": "ic_home_item_food.png", "rightStr": "¥2.98"},
-  {"title": "文教", "url": "ic_home_item_buycar.png", "rightStr": "¥1.00"},
-  {"title": "育儿", "url": "ic_home_item_car.png", "rightStr": "¥4.20"},
-  {"title": "通讯", "url": "ic_home_item_buycar.png", "rightStr": "¥900.18"},
-  {"title": "住房", "url": "ic_home_item_food.png", "rightStr": "¥598.00"},
-  {"title": "零食", "url": "ic_home_item_buycar.png", "rightStr": "¥5.50"},
+List billData = [
+  {
+    "title": "餐饮",
+    "url": "ic_home_item_buycar.png",
+    "rightStr": "¥598.98",
+    "time": "2020年07月12日 星期日",
+    "isShowTitle": false,
+  },
+  {
+    "title": "交通",
+    "url": "ic_home_item_car.png",
+    "rightStr": "¥1,298.98",
+    "time": "2020年07月12日 星期日",
+    "isShowTitle": false,
+  },
+  {
+    "title": "出行",
+    "url": "ic_home_item_food.png",
+    "rightStr": "¥59,998.98",
+    "time": "2020年07月14日 星期二",
+    "isShowTitle": false,
+  },
+  {
+    "title": "骑车",
+    "url": "ic_home_item_buycar.png",
+    "rightStr": "¥1,000.98",
+    "time": "2020年07月15日 星期三",
+    "isShowTitle": false,
+  },
+  {
+    "title": "购物",
+    "url": "ic_home_item_car.png",
+    "rightStr": "¥100,100.98",
+    "time": "2020年07月15日 星期三",
+    "isShowTitle": false,
+  },
+  {
+    "title": "娱乐",
+    "url": "ic_home_item_food.png",
+    "rightStr": "¥2.98",
+    "time": "2020年07月15日 星期三",
+    "isShowTitle": false,
+  },
+  {
+    "title": "文教",
+    "url": "ic_home_item_buycar.png",
+    "rightStr": "¥1.00",
+    "time": "2020年07月17日 星期五",
+    "isShowTitle": false,
+  },
+  {
+    "title": "育儿",
+    "url": "ic_home_item_car.png",
+    "rightStr": "¥4.20",
+    "time": "2020年07月17日 星期五",
+    "isShowTitle": false,
+  },
+  {
+    "title": "通讯",
+    "url": "ic_home_item_buycar.png",
+    "rightStr": "¥900.18",
+    "time": "2020年07月19日 星期日",
+    "isShowTitle": false,
+  },
+  {
+    "title": "住房",
+    "url": "ic_home_item_food.png",
+    "rightStr": "¥598.00",
+    "time": "2020年07月27日 星期一",
+    "isShowTitle": false,
+  },
+  {
+    "title": "零食",
+    "url": "ic_home_item_buycar.png",
+    "rightStr": "¥5.50",
+    "time": "2020年07月27日 星期一",
+    "isShowTitle": false,
+  },
 ];
