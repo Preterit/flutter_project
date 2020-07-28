@@ -3,9 +3,8 @@
 * author:lwb
 * Desc: 图表页面上面的饼状图
 */
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:flutterproject/aa_syncfusion_charts_lib/charts.dart';
 
 import 'model.dart';
 
@@ -64,7 +63,6 @@ class _TopPieChartState extends State<TopPieChart> {
         dataLabelMapper: (ChartSampleData data, _) => data.text,
         dataLabelSettings: DataLabelSettings(
           isVisible: true,
-          showZeroValue:  true,
           labelPosition: ChartDataLabelPosition.outside,
           connectorLineSettings:
               ConnectorLineSettings(type: ConnectorType.curve),
