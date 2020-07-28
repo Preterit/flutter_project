@@ -4,7 +4,7 @@
 * Desc: 图表页面上面的饼状图
 */
 import 'package:flutter/cupertino.dart';
-import 'package:flutterproject/aa_syncfusion_charts_lib/charts.dart';
+import 'package:flutterproject/asyncfusion_flutter_charts/charts.dart';
 
 import 'model.dart';
 
@@ -71,3 +71,4 @@ class _TopPieChartState extends State<TopPieChart> {
     ];
   }
 }
+

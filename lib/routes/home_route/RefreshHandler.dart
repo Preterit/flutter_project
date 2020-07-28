@@ -6,7 +6,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/aa_syncfusion_charts_lib/charts.dart';
+import 'package:flutterproject/asyncfusion_flutter_charts/charts.dart';
 
 class RefreshHandler extends StatefulWidget {
   @override
