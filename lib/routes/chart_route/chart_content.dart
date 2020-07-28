@@ -5,11 +5,9 @@
 */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/common/toast.dart';
-import 'package:flutterproject/routes/bill_route/bill_content_list_title.dart';
 import 'package:flutterproject/routes/chart_route/chart_list_data.dart';
-import 'package:flutterproject/routes/home_route/home_Item.dart';
 import 'package:flutterproject/util/imgutil.dart';
+import 'chart_list_item.dart';
 import 'chart_top_content.dart';
 
 class ChartContent extends StatefulWidget {
@@ -41,42 +39,17 @@ class _ChartContentState extends State<ChartContent> {
                   child: ChartTopContent(),
                 ),
               ),
-              SliverToBoxAdapter(
-                ///  内容区域图标部分
-                child: BillContentListTitle(_listTypeChange),
-              ),
-              SliverToBoxAdapter(
-                ///  内容区域图标部分
-                child: Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    "2020年7月22日 星期三",
-                    style: TextStyle(fontSize: 11.0),
-                  ),
-                ),
-              ),
               SliverFixedExtentList(
                 delegate: SliverChildBuilderDelegate(
-                  (c, i) => HomePageItem(
-                    title: chartListData[i]["title"],
-                    url: chartListData[i]["url"],
-                    rightStr: chartListData[i]["rightStr"],
-                  ),
+                  (c, i) => ChartListItem(chartListData[i]),
                   childCount: chartListData.length,
                 ),
-                itemExtent: 48.0,
+                itemExtent: 70.0,
               )
             ],
           )
         ],
       ),
     );
-  }
-
-  void _listTypeChange(order_type) {
-    setState(() {
-      ToastUtil.show("排序类型 切换 -- $order_type");
-    });
   }
 }

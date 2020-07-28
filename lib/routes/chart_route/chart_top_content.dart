@@ -17,6 +17,7 @@ class _ChartTopContentState extends State<ChartTopContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(bottom: 30.0),
       child: Stack(
         children: <Widget>[
           Container(
