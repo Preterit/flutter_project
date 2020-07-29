@@ -8,8 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/config/application.dart';
 import 'package:flutterproject/config/routes.dart';
+import 'package:flutterproject/popup_window.dart';
 import 'package:flutterproject/routes/bill_route/page_bill.dart';
 import 'package:flutterproject/util/imgutil.dart';
+
+import 'bill_month_select.dart';
 
 class BillTop extends StatefulWidget {
   final TabController mController;
@@ -26,7 +29,8 @@ class _BillTopState extends State<BillTop> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 1,bottom: 10.0),
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top + 1, bottom: 10.0),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
@@ -55,7 +59,7 @@ class _BillTopState extends State<BillTop> {
                       alignment: Alignment.centerRight,
                       margin: EdgeInsets.only(right: 10.0),
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           Application.navigateTo(context, Routes.barChart);
                         },
                         child: Image.asset(
@@ -70,28 +74,24 @@ class _BillTopState extends State<BillTop> {
 
           /// TabBar 以及 年月 筛选条件
           Container(
-            padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
             child: Center(
               child: Row(
                 children: <Widget>[
-                  InkWell(
-                    onTap: _chooseDate,
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          "2020年",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  /// 自定义弹框
+                  PopupWindowButton(
+                    offset: Offset(0, 300),
+                    child: getButton(),
+                    window: contentWidget(),
+                    builder: (Widget child, Animation<double> animation,
+                        Animation<double> secondaryAnimation) {
+                      return FadeTransition(
+                        opacity: animation,
+                        child: SizeTransition(
+                          sizeFactor: animation,
+                          child: child,
                         ),
-                        Image.asset(
-                          Img.allUrl("ic_bill_down.png"),
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
 
                   /// Tabbar
@@ -128,7 +128,7 @@ class _BillTopState extends State<BillTop> {
                   InkWell(
                     onTap: _chooseClick,
                     child: Container(
-                      margin: EdgeInsets.only(left: 6.0),
+                      margin: EdgeInsets.only(left: 6.0,right: 10.0),
                       child: Row(
                         children: <Widget>[
                           Text(
@@ -154,6 +154,36 @@ class _BillTopState extends State<BillTop> {
                 ],
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget contentWidget() {
+    return BillMonthSelect();
+  }
+
+  /*
+   *  选择年的 按钮
+   */
+  Widget getButton() {
+    return Container(
+      padding: EdgeInsets.only(left: 10.0),
+      height: 60,
+      child: Row(
+        children: <Widget>[
+          Text(
+            "2020年",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Image.asset(
+            Img.allUrl("ic_bill_down.png"),
+            color: Colors.white,
           ),
         ],
       ),

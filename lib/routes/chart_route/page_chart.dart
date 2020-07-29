@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/routes/bill_route/bill_content.dart';
 import 'package:flutterproject/routes/bill_route/bill_top.dart';
 import 'package:flutterproject/routes/bill_route/page_bill.dart';
 
