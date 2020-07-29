@@ -21,17 +21,14 @@ class MonthItem extends StatefulWidget {
   final DateItemBean itemBean;
   int month;
   int year;
-  var dateTime;
 
   MonthItem(this.itemBean) : assert(itemBean != null) {
-    dateTime = new DateTime(itemBean.year, itemBean.month);
-    this.month = itemBean.month;
-    this.year = itemBean.year;
+    this.month = int.parse("${itemBean.year}${DateUtil.getZero(itemBean.month)}");
   }
 }
 
 class _MonthItemState extends State<MonthItem> {
-  int currentMonth = DateUtil.MONTH;
+  int currentMonth = int.parse("${DateUtil.YEAR}${DateUtil.getZero(DateUtil.MONTH)}");
   bool hasBg = false;
 
   @override
@@ -60,7 +57,7 @@ class _MonthItemState extends State<MonthItem> {
               color: hasBg ? selectBg : Colors.white,
             ),
             child: Text(
-              "${widget.month}",
+              "${widget.itemBean.month}",
               style: TextStyle(
                 color: getItemTxColor(),
                 fontSize: 12.0,

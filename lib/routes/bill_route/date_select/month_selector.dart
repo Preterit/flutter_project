@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
+import 'package:flutterproject/util/date_util.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
 import 'modth_model.dart';
@@ -21,6 +22,13 @@ class MonthSelector extends StatefulWidget {
 }
 
 class _MonthSelectorState extends State<MonthSelector> {
+
+  @override
+  void initState() {
+    billTopData["selectMonth"] = int.parse("${DateUtil.YEAR}${DateUtil.getZero(DateUtil.MONTH)}");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
