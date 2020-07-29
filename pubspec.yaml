@@ -115,6 +115,8 @@ flutter:
     - assets/images/ic_nill_shaixuan.png
     - assets/images/abc_btn_radio_to_on_mtrl_000.png
     - assets/images/abc_btn_radio_to_on_mtrl_015.png
+    - assets/images/ic_top_left_arrow.png
+    - assets/images/ic_top_right_arrow.png
 
 
     - assets/images/loadgif/drop_00000.png
