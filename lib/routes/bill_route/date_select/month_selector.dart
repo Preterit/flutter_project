@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
+import 'month_item.dart';
+
 /*
 * Date:2020/7/29
 * author:lwb
@@ -11,6 +13,10 @@ import 'package:flutterproject/util/imgutil.dart';
 class MonthSelector extends StatefulWidget {
   @override
   _MonthSelectorState createState() => _MonthSelectorState();
+
+  final int currentMonth;
+
+  MonthSelector(this.currentMonth);
 }
 
 class _MonthSelectorState extends State<MonthSelector> {
@@ -18,9 +24,8 @@ class _MonthSelectorState extends State<MonthSelector> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.greenAccent,
-      height: 100,
+      height: 110,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           InkWell(
             onTap: () {
@@ -35,7 +40,8 @@ class _MonthSelectorState extends State<MonthSelector> {
           Expanded(
             flex: 1,
             child: Container(
-              height: 100,
+              color: Colors.grey,
+              height: 110,
               child: PageView.builder(
                 itemBuilder: (context, index) => centerWidget(),
                 itemCount: 12,
@@ -59,9 +65,10 @@ class _MonthSelectorState extends State<MonthSelector> {
 
   Widget centerWidget() {
     return GridView.count(
-      padding: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(1.0),
       //一行的Widget数量
       crossAxisCount: 6,
+      mainAxisSpacing: 10.0,
       //子Widget列表
       children: getWidgetList(),
     );
@@ -69,22 +76,9 @@ class _MonthSelectorState extends State<MonthSelector> {
 
   List<Widget> getWidgetList() {
     List<Widget> result = new List();
-
     for (int i = 0; i < 12; i++) {
       result.add(
-        Container(
-          height: 50,
-          width: 50,
-          child: Center(
-            child: Text(
-              "${i + 1}",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 13.0,
-              ),
-            ),
-          ),
-        ),
+        MonthItem(i + 1),
       );
     }
     return result;

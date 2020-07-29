@@ -27,8 +27,8 @@ class _BillMonthSelectState extends State<BillMonthSelect> {
         child: Column(
           children: <Widget>[
             MYCusItem(),
-            MonthSelector(),
-            Container(height: 20.0,color: Colors.greenAccent,),
+            MonthSelector(7),
+            Container(height: 20.0,color: Colors.black,),
             Expanded(
                 flex: 1,
                 child: GestureDetector(
