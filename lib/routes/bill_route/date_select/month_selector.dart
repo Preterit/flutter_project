@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
+import 'modth_model.dart';
 import 'month_item.dart';
 
 /*
@@ -43,8 +44,9 @@ class _MonthSelectorState extends State<MonthSelector> {
               color: Colors.grey,
               height: 110,
               child: PageView.builder(
-                itemBuilder: (context, index) => centerWidget(),
-                itemCount: 12,
+                itemBuilder: (context, index) =>
+                    centerWidget(billMonthList[index]["selectYear"]),
+                itemCount: billMonthList.length,
               ),
             ),
           ),
@@ -63,22 +65,22 @@ class _MonthSelectorState extends State<MonthSelector> {
     );
   }
 
-  Widget centerWidget() {
+  Widget centerWidget(year) {
     return GridView.count(
       padding: EdgeInsets.all(1.0),
       //一行的Widget数量
       crossAxisCount: 6,
       mainAxisSpacing: 10.0,
       //子Widget列表
-      children: getWidgetList(),
+      children: getWidgetList(year),
     );
   }
 
-  List<Widget> getWidgetList() {
+  List<Widget> getWidgetList(int year) {
     List<Widget> result = new List();
     for (int i = 0; i < 12; i++) {
       result.add(
-        MonthItem(i + 1),
+        MonthItem(DateItemBean(year,i+1)),
       );
     }
     return result;

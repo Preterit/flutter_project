@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/config/application.dart';
+import 'package:flutterproject/util/date_util.dart';
 
 import 'modth_model.dart';
 
@@ -17,18 +18,24 @@ class MonthItem extends StatefulWidget {
   @override
   _MonthItemState createState() => _MonthItemState();
 
-  final int month;
+  final DateItemBean itemBean;
+  int month;
+  int year;
+  var dateTime;
 
-  MonthItem(this.month);
+  MonthItem(this.itemBean) : assert(itemBean != null) {
+    dateTime = new DateTime(itemBean.year, itemBean.month);
+    this.month = itemBean.month;
+    this.year = itemBean.year;
+  }
 }
 
 class _MonthItemState extends State<MonthItem> {
-  int currentMonth;
+  int currentMonth = DateUtil.MONTH;
   bool hasBg = false;
 
   @override
   void initState() {
-    currentMonth = 7;
     if (widget.month == billTopData["selectMonth"]) {
       hasBg = true;
     } else {
@@ -40,7 +47,7 @@ class _MonthItemState extends State<MonthItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.month <= currentMonth ? _onMonthSelect : null,
+      onTap: _onItemClick(),
       child: Container(
         color: Colors.white,
         child: Center(
@@ -94,5 +101,10 @@ class _MonthItemState extends State<MonthItem> {
       }
       Application.router.pop(context);
     });
+  }
+
+  Function _onItemClick() {
+    return null;
+//  widget.month <= currentMonth ? _onMonthSelect : null
   }
 }
