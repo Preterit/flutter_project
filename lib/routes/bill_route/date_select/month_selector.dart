@@ -62,7 +62,6 @@ class _MonthSelectorState extends State<MonthSelector> {
             },
             child: Container(
               height: double.infinity,
-              color: Colors.greenAccent,
               width: 40.0,
               child: Image.asset(
                 Img.allUrl("ic_top_left_arrow.png"),
@@ -74,7 +73,6 @@ class _MonthSelectorState extends State<MonthSelector> {
           Expanded(
             child: Container(
               height: height,
-              color: Colors.greenAccent,
               child: PageView.builder(
                 itemBuilder: (context, index) =>
                     centerWidget(billMonthList[index]["selectYear"]),
@@ -97,7 +95,6 @@ class _MonthSelectorState extends State<MonthSelector> {
               });
             },
             child: Container(
-              color: Colors.greenAccent,
               width: 40.0,
               height: double.infinity,
               child: Image.asset(
