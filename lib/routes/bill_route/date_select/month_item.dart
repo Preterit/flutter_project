@@ -28,6 +28,9 @@ class MonthItem extends StatefulWidget {
 }
 
 class _MonthItemState extends State<MonthItem> {
+  /*
+   * 将年月 转换成 202007 / 201912 的形式 进行比较
+   */
   int currentMonth = int.parse("${DateUtil.YEAR}${DateUtil.getZero(DateUtil.MONTH)}");
   bool hasBg = false;
 
@@ -46,23 +49,26 @@ class _MonthItemState extends State<MonthItem> {
     return InkWell(
       onTap: _onItemClick(),
       child: Container(
-        color: Colors.white,
         child: Center(
-          child: Container(
-            alignment: Alignment.center,
-            height: 30.0,
-            width: 30.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: hasBg ? selectBg : Colors.white,
-            ),
-            child: Text(
-              "${widget.itemBean.month}",
-              style: TextStyle(
-                color: getItemTxColor(),
-                fontSize: 12.0,
-              ),
-            ),
+          child:Stack(
+            children: <Widget>[
+              Container(
+                height: 30.0,
+                width: 30.0,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                  color: hasBg ? selectBg : Colors.white,
+                ),
+                child: Text(
+                  "${widget.itemBean.month}",
+                  style: TextStyle(
+                    color: getItemTxColor(),
+                    fontSize: 12.0,
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),

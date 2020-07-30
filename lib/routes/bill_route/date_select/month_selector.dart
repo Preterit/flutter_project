@@ -21,6 +21,9 @@ class MonthSelector extends StatefulWidget {
   MonthSelector(this.currentMonth);
 }
 
+const duration = Duration(milliseconds: 100);
+const curve = Curves.easeInOut;
+
 class _MonthSelectorState extends State<MonthSelector> {
   PageController pageController;
   int currentIndex;
@@ -35,32 +38,35 @@ class _MonthSelectorState extends State<MonthSelector> {
     pageController = new PageController(
       initialPage: billMonthList.length - 1,
     );
-//    pageController.animateToPage(billMonthList.length);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.greenAccent,
-      height: 110,
+      color: Colors.white,
+      height: 100,
       child: Row(
         children: <Widget>[
           InkWell(
             onTap: () {
-              ToastUtil.show("left--click");
+              pageController.previousPage(duration: duration, curve: curve);
             },
             child: Image.asset(
               Img.allUrl("ic_top_left_arrow.png"),
-              height: 30.0,
-              width: 30.0,
+              height: 40.0,
+              width: 40.0,
             ),
           ),
           Expanded(
-            flex: 1,
             child: Container(
-              color: Colors.grey,
-              height: 110,
+              height: 100,
               child: PageView.builder(
                 itemBuilder: (context, index) =>
                     centerWidget(billMonthList[index]["selectYear"]),
@@ -68,6 +74,7 @@ class _MonthSelectorState extends State<MonthSelector> {
                 controller: pageController,
                 onPageChanged: (index) {
                   setState(() {
+                    print("$index");
                     currentIndex = index;
                   });
                 },
@@ -76,13 +83,14 @@ class _MonthSelectorState extends State<MonthSelector> {
           ),
           InkWell(
             onTap: () {
-              ToastUtil.show("right--click");
-              setState(() {});
+              setState(() {
+                pageController.nextPage(duration: duration, curve: curve);
+              });
             },
             child: Image.asset(
               Img.allUrl("ic_top_right_arrow.png"),
-              height: 30.0,
-              width: 30.0,
+              height: 40.0,
+              width: 40.0,
             ),
           ),
         ],
@@ -92,10 +100,10 @@ class _MonthSelectorState extends State<MonthSelector> {
 
   Widget centerWidget(year) {
     return GridView.count(
-      padding: EdgeInsets.all(1.0),
+      padding: EdgeInsets.all(0.0),
       //一行的Widget数量
       crossAxisCount: 6,
-      mainAxisSpacing: 10.0,
+      childAspectRatio: 0.93,
       //子Widget列表
       children: getWidgetList(year),
     );
