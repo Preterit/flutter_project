@@ -21,7 +21,7 @@ class MYCusItem extends StatefulWidget {
 }
 
 class _MYCusItemState extends State<MYCusItem> {
-  int currentItem = 2;
+  int currentItem = 0;
 
   @override
   void initState() {

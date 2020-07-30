@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/routes/bill_route/bill_top.dart';
 import 'package:flutterproject/routes/bill_route/page_bill.dart';
+import 'package:flutterproject/routes/page/drawer/drawer_widget.dart';
 
 import 'chart_content.dart';
 
@@ -28,20 +29,24 @@ class _ChartPageState extends State<ChartPage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          /// TabBar 部分
-          BillTop(mController,"报表"),
+    return Scaffold(
+      endDrawer: EndDrawer(),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            /// TabBar 部分
+            BillTop(mController, "报表"),
 
-          /// 柱状图 / 列表  部分
-          Expanded(
-            child: TabBarView(
-              controller: mController,
-              children: getTabList().map((item) => ChartContent(item)).toList(),
+            /// 柱状图 / 列表  部分
+            Expanded(
+              child: TabBarView(
+                controller: mController,
+                children:
+                    getTabList().map((item) => ChartContent(item)).toList(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
