@@ -22,10 +22,20 @@ class MonthSelector extends StatefulWidget {
 }
 
 class _MonthSelectorState extends State<MonthSelector> {
+  PageController pageController;
+  int currentIndex;
 
   @override
   void initState() {
-    billTopData["selectMonth"] = int.parse("${DateUtil.YEAR}${DateUtil.getZero(DateUtil.MONTH)}");
+    if (billTopData["selectMonth"] == 0) {
+      billTopData["selectMonth"] =
+          int.parse("${DateUtil.YEAR}${DateUtil.getZero(DateUtil.MONTH)}");
+    }
+
+    pageController = new PageController(
+      initialPage: billMonthList.length - 1,
+    );
+//    pageController.animateToPage(billMonthList.length);
     super.initState();
   }
 
@@ -55,12 +65,19 @@ class _MonthSelectorState extends State<MonthSelector> {
                 itemBuilder: (context, index) =>
                     centerWidget(billMonthList[index]["selectYear"]),
                 itemCount: billMonthList.length,
+                controller: pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
               ),
             ),
           ),
           InkWell(
             onTap: () {
               ToastUtil.show("right--click");
+              setState(() {});
             },
             child: Image.asset(
               Img.allUrl("ic_top_right_arrow.png"),
@@ -88,7 +105,7 @@ class _MonthSelectorState extends State<MonthSelector> {
     List<Widget> result = new List();
     for (int i = 0; i < 12; i++) {
       result.add(
-        MonthItem(DateItemBean(year,i+1)),
+        MonthItem(DateItemBean(year, i + 1)),
       );
     }
     return result;

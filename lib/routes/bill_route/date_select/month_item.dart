@@ -100,8 +100,10 @@ class _MonthItemState extends State<MonthItem> {
     });
   }
 
+  /*
+   * 月 条目 是否能点击
+   */
   Function _onItemClick() {
-    return null;
-//  widget.month <= currentMonth ? _onMonthSelect : null
+    return widget.month <= currentMonth ? _onMonthSelect : null;
   }
 }
