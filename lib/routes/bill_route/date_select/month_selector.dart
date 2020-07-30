@@ -27,6 +27,7 @@ const curve = Curves.easeInOut;
 class _MonthSelectorState extends State<MonthSelector> {
   PageController pageController;
   int currentIndex;
+  var height;
 
   @override
   void initState() {
@@ -49,24 +50,31 @@ class _MonthSelectorState extends State<MonthSelector> {
 
   @override
   Widget build(BuildContext context) {
+    height = ((MediaQuery.of(context).size.width - 80) / 6) * 2;
     return Container(
       color: Colors.white,
-      height: 100,
+      height: height,
       child: Row(
         children: <Widget>[
           InkWell(
             onTap: () {
               pageController.previousPage(duration: duration, curve: curve);
             },
-            child: Image.asset(
-              Img.allUrl("ic_top_left_arrow.png"),
-              height: 40.0,
+            child: Container(
+              height: double.infinity,
+              color: Colors.greenAccent,
               width: 40.0,
+              child: Image.asset(
+                Img.allUrl("ic_top_left_arrow.png"),
+                height: 20.0,
+                width: 20.0,
+              ),
             ),
           ),
           Expanded(
             child: Container(
-              height: 100,
+              height: height,
+              color: Colors.greenAccent,
               child: PageView.builder(
                 itemBuilder: (context, index) =>
                     centerWidget(billMonthList[index]["selectYear"]),
@@ -84,13 +92,19 @@ class _MonthSelectorState extends State<MonthSelector> {
           InkWell(
             onTap: () {
               setState(() {
+                print(MediaQuery.of(context).size.width);
                 pageController.nextPage(duration: duration, curve: curve);
               });
             },
-            child: Image.asset(
-              Img.allUrl("ic_top_right_arrow.png"),
-              height: 40.0,
+            child: Container(
+              color: Colors.greenAccent,
               width: 40.0,
+              height: double.infinity,
+              child: Image.asset(
+                Img.allUrl("ic_top_right_arrow.png"),
+                height: 20.0,
+                width: 20.0,
+              ),
             ),
           ),
         ],
@@ -103,7 +117,6 @@ class _MonthSelectorState extends State<MonthSelector> {
       padding: EdgeInsets.all(0.0),
       //一行的Widget数量
       crossAxisCount: 6,
-      childAspectRatio: 0.93,
       //子Widget列表
       children: getWidgetList(year),
     );
