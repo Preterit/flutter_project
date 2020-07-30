@@ -126,7 +126,9 @@ class _BillTopState extends State<BillTop> {
 
                   /// 筛选
                   InkWell(
-                    onTap: _chooseClick,
+                    onTap: (){
+                      Scaffold.of(context).openEndDrawer();
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 6.0,right: 10.0),
                       child: Row(
@@ -160,6 +162,9 @@ class _BillTopState extends State<BillTop> {
     );
   }
 
+  /*
+   * popwindow 的内容 布局
+   */
   Widget contentWidget() {
     return BillMonthSelect();
   }
@@ -189,19 +194,4 @@ class _BillTopState extends State<BillTop> {
       ),
     );
   }
-}
-
-/// 更多
-void _moreClick() {
-  ToastUtil.show("more");
-}
-
-/// 选择年月
-void _chooseDate() {
-  ToastUtil.show("Date");
-}
-
-/// 筛选
-void _chooseClick() {
-  ToastUtil.show("筛选");
 }

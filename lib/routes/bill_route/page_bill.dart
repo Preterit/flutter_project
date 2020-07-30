@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterproject/routes/bill_route/bill_top.dart';
+import 'package:flutterproject/routes/page/drawer/drawer_widget.dart';
+import 'package:flutterproject/routes/page/drawer/end_drawer_header.dart';
 
 import 'bill_content.dart';
 
@@ -44,20 +46,25 @@ class _BillPageState extends State<BillPage>
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    return Container(
-      child: Column(
-        children: <Widget>[
-          /// TabBar 部分
-          BillTop(mController,"账单"),
+    return Scaffold(
+      endDrawer: EndDrawer(),
+      drawerEdgeDragWidth: 0.0,
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            /// TabBar 部分
+            BillTop(mController, "账单"),
 
-          /// 柱状图 / 列表  部分
-          Expanded(
-            child: TabBarView(
-              controller: mController,
-              children: getTabList().map((item) => BillContent(item)).toList(),
+            /// 柱状图 / 列表  部分
+            Expanded(
+              child: TabBarView(
+                controller: mController,
+                children:
+                    getTabList().map((item) => BillContent(item)).toList(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
