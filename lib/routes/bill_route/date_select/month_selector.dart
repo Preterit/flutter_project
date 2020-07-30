@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/common/toast.dart';
 import 'package:flutterproject/util/date_util.dart';
 import 'package:flutterproject/util/imgutil.dart';
 
@@ -27,7 +26,6 @@ const curve = Curves.easeInOut;
 class _MonthSelectorState extends State<MonthSelector> {
   PageController pageController;
   int currentIndex;
-  var height;
 
   @override
   void initState() {
@@ -50,7 +48,10 @@ class _MonthSelectorState extends State<MonthSelector> {
 
   @override
   Widget build(BuildContext context) {
-    height = ((MediaQuery.of(context).size.width - 80) / 6) * 2;
+    /*
+     * 这里是进行 根据不同尺寸的手机宽度 动态设置pageView的高度。
+     */
+    var height = ((MediaQuery.of(context).size.width - 80) / 6) * 2;
     return Container(
       color: Colors.white,
       height: height,
@@ -109,6 +110,9 @@ class _MonthSelectorState extends State<MonthSelector> {
     );
   }
 
+  /*
+   * pageview 内容
+   */
   Widget centerWidget(year) {
     return GridView.count(
       padding: EdgeInsets.all(0.0),
@@ -119,6 +123,9 @@ class _MonthSelectorState extends State<MonthSelector> {
     );
   }
 
+  /*
+   *  GridView 条目
+   */
   List<Widget> getWidgetList(int year) {
     List<Widget> result = new List();
     for (int i = 0; i < 12; i++) {

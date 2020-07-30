@@ -28,12 +28,12 @@ class _BillMonthSelectState extends State<BillMonthSelect> {
           children: <Widget>[
             MYCusItem(),
             MonthSelector(7),
-            Container(height: 20.0, color: Colors.white),
+            Container(height: 15.0, color: Colors.white),
             Expanded(
                 flex: 1,
                 child: GestureDetector(
                   child: Container(
-                    color: Color.fromARGB(128, 128, 128, 128),
+                    color: Color.fromARGB(180, 128, 128, 128),
                     height: double.infinity,
                     width: double.infinity,
                   ),
