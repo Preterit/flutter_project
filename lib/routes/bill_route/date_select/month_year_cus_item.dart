@@ -1,8 +1,3 @@
-/*
-* Date:2020/7/29
-* author:lwb
-* Desc:
-*/
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/common/toast.dart';
@@ -15,6 +10,11 @@ const List<String> str = ["月账单", "年账单", "自定义"];
 const leftBorderRadius = BorderRadius.horizontal(left: radius);
 const rightBorderRadius = BorderRadius.horizontal(right: radius);
 
+/*
+* Date:2020/7/29
+* author:lwb
+* Desc:
+*/
 class MYCusItem extends StatefulWidget {
   @override
   _MYCusItemState createState() => _MYCusItemState();
